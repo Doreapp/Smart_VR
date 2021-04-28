@@ -6,8 +6,7 @@ using Microsoft.Maps.Unity;
 public class mapLoader : MonoBehaviour
 {
     public GameObject basicMap;
-    public int size = 3;
-    public int renderSize = 10;
+    public int size;
     List<GameObject> maps;
     int xOffset, zOffset;
 
@@ -23,9 +22,8 @@ public class mapLoader : MonoBehaviour
         {
             for(int j = -size; j <= size; j++)
             {
-                GameObject tile = Instantiate(basicMap, new Vector3(i * 3, -1f, j * 3), Quaternion.Euler(0, 0, 0), this.transform);
-                tile.GetComponent<MapRenderer>().Center = MapRendererTransformExtensions
-                    .TransformWorldPointToLatLon(basicMapRenderer, tile.transform.position);
+                GameObject tile = Instantiate(basicMap, new Vector3(i * 3, transform.position.y, j * 3), Quaternion.Euler(0, 0, 0), this.transform);
+                TransformWorldPointToLatLon(tile);
                 maps.Add(tile);
             }
         }
@@ -45,17 +43,16 @@ public class mapLoader : MonoBehaviour
         	float xPos = camera.x - Mathf.Sign(xOffset) * (size+Mathf.Abs(xOffset)) * 3f;
         	for(int j = -size; j <= size; j++)
         	{  
-                GameObject tile = GameObject.Instantiate(basicMap, new Vector3(xPos, -1f, camera.z - Mathf.Sign(zOffset) * (j+Mathf.Abs(zOffset)) * 3f), Quaternion.Euler(0, 0, 0), this.transform);
-                tile.GetComponent<MapRenderer>().Center = MapRendererTransformExtensions
-                    .TransformWorldPointToLatLon(basicMapRenderer, tile.transform.position);
-        		maps.Add(tile);
+                GameObject tile = GameObject.Instantiate(basicMap, new Vector3(xPos, camera.y, camera.z - Mathf.Sign(zOffset) * (j+Mathf.Abs(zOffset)) * 3f), Quaternion.Euler(0, 0, 0), this.transform);
+                TransformWorldPointToLatLon(tile);
+                maps.Add(tile);
         	}
         	List<GameObject> toDestroy = new List<GameObject>();
         	// Selecting all the maps to delete
         	foreach(GameObject map in maps)
         	{
-        		if( (xOffset >= 0 && ((Vector3)map.transform.position).x > -xPos) ||
-    				(xOffset <  0 && ((Vector3)map.transform.position).x < -xPos)){
+        		if( (xOffset >= 0 && map.transform.position.x > -xPos) ||
+    				(xOffset <  0 && map.transform.position.x < -xPos)){
         			toDestroy.Add(map);
         		}
         	}
@@ -72,16 +69,15 @@ public class mapLoader : MonoBehaviour
         	float zPos = camera.z - Mathf.Sign(zOffset) * (size+Mathf.Abs(zOffset)) * 3f;
         	for(int i = -size; i <= size; i++)
         	{  
-                GameObject tile = GameObject.Instantiate(basicMap, new Vector3(camera.x - Mathf.Sign(xOffset) * (i+Mathf.Abs(xOffset)) * 3f, -1f, zPos), Quaternion.Euler(0, 0, 0), this.transform);
-                tile.GetComponent<MapRenderer>().Center = MapRendererTransformExtensions
-                                    .TransformWorldPointToLatLon(basicMapRenderer, tile.transform.position);
-        		maps.Add(tile);
+                GameObject tile = GameObject.Instantiate(basicMap, new Vector3(camera.x - Mathf.Sign(xOffset) * (i+Mathf.Abs(xOffset)) * 3f, camera.y, zPos), Quaternion.Euler(0, 0, 0), this.transform);
+                TransformWorldPointToLatLon(tile);
+                maps.Add(tile);
         	}
         	List<GameObject> toDestroy = new List<GameObject>();
         	foreach(GameObject map in maps)
         	{
-        		if( (zOffset >= 0 && ((Vector3)map.transform.position).z > -zPos) ||
-    				(zOffset <  0 && ((Vector3)map.transform.position).z < -zPos)){
+        		if( (zOffset >= 0 && map.transform.position.z > -zPos) ||
+    				(zOffset <  0 && map.transform.position.z < -zPos)){
         			toDestroy.Add(map);
         		}
         	}
@@ -90,5 +86,11 @@ public class mapLoader : MonoBehaviour
         		Destroy(map);
         	}
         }
+    }
+
+    void TransformWorldPointToLatLon(GameObject tile)
+    {
+        tile.GetComponent<MapRenderer>().Center = MapRendererTransformExtensions
+                                    .TransformWorldPointToLatLon(basicMapRenderer, - transform.position + tile.transform.position);
     }
 }
