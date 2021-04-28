@@ -36,7 +36,7 @@ public class mapLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(-0.005f,0f,0.002f);
+        //transform.position += new Vector3(-0.005f,0f,0.002f);
         Vector3 camera = transform.position;
 
         //check if you're changing of row (X axe)
