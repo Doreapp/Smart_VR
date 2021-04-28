@@ -48,9 +48,9 @@ MonoBehaviour:
   _mapSession: {fileID: 0}
   _mapEdgeColor: {r: 0.62352943, g: 0.64705884, b: 0.69411767, a: 1}
   _mapEdgeColorFadeDistance: 0.02
-  _detailOffset: 0
-  _numElevationTileFallbackLods: 2
-  _requestTilesAroundView: 1
+  _detailOffset: -1
+  _numElevationTileFallbackLods: 0
+  _requestTilesAroundView: 0
   _center:
     _latitude: 40.71105
     _longitude: -74.01079
@@ -63,13 +63,13 @@ MonoBehaviour:
   _localMapRadius: 0.5
   _localMapBaseHeight: 0.3
   _elevationScale: 1
-  _castShadows: 1
-  _receiveShadows: 1
+  _castShadows: 0
+  _receiveShadows: 0
   _enableMrtkMaterialIntegration: 0
   _terrainMaterial: {fileID: 0}
   _isClippingVolumeWallEnabled: 1
   _clippingVolumeMaterial: {fileID: 0}
-  _clippingVolumeDistanceTextureResolution: 2
+  _clippingVolumeDistanceTextureResolution: 0
   _textureTileLayers:
     _list: []
   _elevationTileLayers:
