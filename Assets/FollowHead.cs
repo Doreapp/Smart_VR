@@ -9,6 +9,7 @@ public class FollowHead : MonoBehaviour
     public GameObject controller;
     public TextMesh logText;
     public float speedMultiplier = 1;
+    public int minHeight, maxHeight;
 
     private Vector3 lastPosition = new Vector3(0,0,0);
     private float timeSpent = 0;
@@ -42,7 +43,11 @@ public class FollowHead : MonoBehaviour
         }
 
         // Move the environnement backward
-        environnement.transform.position -= vecDirection;
+        Vector3 env = environnement.transform.position;
+        env -= vecDirection;
+        env.y = Mathf.Max(minHeight,env.y); // Check if you're under the minHeight
+        env.y = Mathf.Min(maxHeight,env.y); // Check if you're over the maxHeight
+        environnement.transform.position = env;
     }
 
     private void log(string str) {
