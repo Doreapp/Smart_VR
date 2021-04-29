@@ -437,6 +437,8 @@ MonoBehaviour:
   controller: {fileID: 165585583}
   logText: {fileID: 1793089057}
   speedMultiplier: 0.05
+  minHeight: -10
+  maxHeight: 0
 --- !u!4 &854905464
 Transform:
   m_ObjectHideFlags: 0
