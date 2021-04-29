@@ -38,7 +38,7 @@ public class FollowHead : MonoBehaviour
             speed = Mathf.Abs(positionDiff.sqrMagnitude / timeSpent); 
             if(speed < MIN_SPEED) speed = 0;
 
-            log($"update 100ms: directionVector={vecDirection}, speed={speed}, environnementPos={environnement.transform.position}");
+            //log($"update 100ms: directionVector={vecDirection}, speed={speed}, environnementPos={environnement.transform.position}");
             timeSpent = 0;
         }
 
