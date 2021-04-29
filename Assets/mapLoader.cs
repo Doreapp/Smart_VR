@@ -7,6 +7,7 @@ public class mapLoader : MonoBehaviour
 {
     public GameObject basicMap;
     public int size;
+    public TextMesh logText;
     List<GameObject> maps;
     int xOffset, zOffset;
 
@@ -36,6 +37,8 @@ public class mapLoader : MonoBehaviour
     {
         //transform.position += new Vector3(-0.005f,0f,0.002f);
         Vector3 camera = transform.position;
+
+        log("xOffset : "+xOffset+" - zOffset : "+zOffset);
 
         //check if you're changing of row (X axe)
         if(Mathf.FloorToInt ((camera.x+1.5f)/3f) != xOffset){
@@ -92,5 +95,9 @@ public class mapLoader : MonoBehaviour
     {
         tile.GetComponent<MapRenderer>().Center = MapRendererTransformExtensions
                                     .TransformWorldPointToLatLon(basicMapRenderer, - transform.position + tile.transform.position);
+    }
+
+    private void log(string str) {
+        logText.text = str;
     }
 }
