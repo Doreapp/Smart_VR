@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Direction_Rb : MonoBehaviour
+public class Inertie : MonoBehaviour
 {
-    public float game_friction; 
+    public float game_friction;
 
     public GameObject head; 
     public Rigidbody environnement;
@@ -13,8 +13,11 @@ public class Direction_Rb : MonoBehaviour
 
     public Vector3 position;
     public Vector3 lastPosition;
-    public Vector3 positionDiff;
+    //public Vector3 positionDiff;
+
     public float controllerSpeed;
+    private const float MIN_SPEED = 0.0001f; 
+
     public float globalTime = 0;
     public float timeSpent = 0;
 
@@ -24,7 +27,7 @@ public class Direction_Rb : MonoBehaviour
     {
         environnement.GetComponent<Rigidbody>().useGravity = false;
         lastPosition = controller.transform.position;
-        game_friction = 3.0f;
+        game_friction = 0.25f;
     }
 
     // Update is called once per frame
@@ -32,37 +35,49 @@ public class Direction_Rb : MonoBehaviour
     {        
         Vector3 direction = head.transform.forward;
         Vector3 velocity = environnement.velocity;
-        Vector3 resistanceForce = - game_friction * velocity;
+        Vector3 resistanceForce = game_friction * velocity;
 
-        position = controller.transform.position;
-
-        positionDiff = position - lastPosition;
-        lastPosition = controller.transform.position;
-
-        if (!float.IsNaN(positionDiff.x) && !float.IsNaN(positionDiff.y) && !float.IsNaN(positionDiff.z)) {
-            positionDiff = new Vector3(0.0f, 0.0f, 0.0f);
-        }
-
-        if (globalTime < 4) {
-            controllerSpeed += 0.1f;
+        
+        if (globalTime < 5) {
+            //position += new Vector3(0.0f, 0.0f, 0.1f);
+            controllerSpeed = 0.2f;
         }else
         {
-            Debug.Log("STOOP");
+            //Debug.Log("STOOP");
             controllerSpeed = 0;
         }
+        
+
         globalTime += Time.deltaTime;
 
-        //controllerSpeed = Mathf.Abs(positionDiff.sqrMagnitude / timeSpent);
-        Vector3 motorForce =  direction * controllerSpeed;
+        /*
+        timeSpent += Time.deltaTime;
+        if(timeSpent >= 0.1){
+            
+            var positionDiff = controller.transform.position - lastPosition;
+            lastPosition = controller.transform.position;
 
-        environnement.AddForce(motorForce + resistanceForce);
+            controllerSpeed = Mathf.Abs(positionDiff.sqrMagnitude / timeSpent); 
+            if(controllerSpeed < MIN_SPEED) controllerSpeed = 0;
 
-                    log($"controllerSpeed={controllerSpeed};");
+            timeSpent = 0;
+        }
+        */
+
+        Vector3 motorForce =  controllerSpeed * direction;
+        Vector3 force = motorForce + resistanceForce;
+
+        environnement.AddForce(-1.0f * force, ForceMode.VelocityChange);
+        
+        //log($"test; force={force}; direction={direction}");
+        log($"resistanceForce={resistanceForce}; controllerSpeed={controllerSpeed}; mapPos={environnement.transform.position}");
+
         timeSpent += Time.deltaTime;
         if(timeSpent >= 0.2){
-            //Debug.Log($"motorForce={motorForce}; resistanceForce={resistanceForce}; time={globalTime}; ");
-            //Debug.Log($"velocity={velocity}; resistanceForce={resistanceForce}; time={globalTime}; ");
-            //Debug.Log($"direction={direction}; controllerSpeed={controllerSpeed}; motorForce={motorForce}; time={globalTime}; ");
+            Debug.Log($"motorForce={motorForce}; resistanceForce={resistanceForce}; force={force}; time={globalTime}; ");
+            //Debug.Log($"direction={direction}; velocity={velocity};  time={globalTime}; ");
+            //Debug.Log($"game_friction={game_friction}; velocity={velocity}; resistanceForce={resistanceForce}; time={globalTime}; ");
+            //Debug.Log($"controllerSpeed={controllerSpeed}; motorForce={motorForce}; time={globalTime}; ");
             timeSpent = 0;
         }
     }
@@ -71,4 +86,5 @@ public class Direction_Rb : MonoBehaviour
     private void log(string str) {
         logText.text = str;
     }
+    
 }
