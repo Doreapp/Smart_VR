@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2894335717163041311}
   - component: {fileID: 2894335716376165344}
-  - component: {fileID: 2894335716376165355}
   m_Layer: 0
   m_Name: BasicMap
   m_TagString: Untagged
@@ -52,8 +51,8 @@ MonoBehaviour:
   _numElevationTileFallbackLods: 0
   _requestTilesAroundView: 0
   _center:
-    _latitude: 40.71105
-    _longitude: -74.01079
+    _latitude: 40.7621246091363
+    _longitude: -73.9675912282814
   _zoomLevel: 18.243998
   _minimumZoomLevel: 1
   _maximumZoomLevel: 20
@@ -76,17 +75,4 @@ MonoBehaviour:
     _list: []
   _hideTileLayerComponents: 1
   _mapColliderType: 1
-  _mapCollider: {fileID: 2894335716376165355}
---- !u!65 &2894335716376165355
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2894335716376165354}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 0.3, z: 3}
-  m_Center: {x: 0, y: 0.15, z: 0}
+  _mapCollider: {fileID: 0}
