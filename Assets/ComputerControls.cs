@@ -13,7 +13,7 @@ public class ComputerControls : MonoBehaviour
 {
     public float movementSpeed = 0.1f;
     public float rotationSpeed = 0.01f;
-    public GameObject environnement;
+    public GameObject player;
 
     // Current player direction 
     private Vector3 direction = new Vector3(0,0,1);
@@ -32,28 +32,29 @@ public class ComputerControls : MonoBehaviour
         // movement backward / forward
         if(Input.GetKey(KeyCode.UpArrow)){
             // Move the map backward
-            environnement.transform.position -= movementSpeed * direction;
+            player.transform.position += movementSpeed * (player.transform.rotation * direction);
         } else if (Input.GetKey(KeyCode.DownArrow)){
             // Move the map forward
-            environnement.transform.position += movementSpeed * direction;
+            player.transform.position -= movementSpeed * (player.transform.rotation * direction);
         }
 
         // movement upward / downward
         if(Input.GetKey(KeyCode.Z)){
             // Move downward the map
-            environnement.transform.position -= movementSpeed * UP_VECTOR;
+            player.transform.position += movementSpeed * UP_VECTOR;
         } else if (Input.GetKey(KeyCode.S)) {
             // Move upward the map
-            environnement.transform.position += movementSpeed * UP_VECTOR;
+            player.transform.position -= movementSpeed * UP_VECTOR;
         }
 
         // Rotate the map 
         if(Input.GetKey(KeyCode.RightArrow)){
             // Rotate to the left (counter-clockwise) the map
-            environnement.transform.RotateAround(CENTER, Vector3.up, -rotationSpeed);
+            player.transform.Rotate(0, rotationSpeed, 0);
+
         } else if(Input.GetKey(KeyCode.LeftArrow)){
             // Rotate to the left (counter-clockwise) the map
-            environnement.transform.RotateAround(CENTER, Vector3.up, rotationSpeed);
+            player.transform.Rotate(0, -rotationSpeed, 0);
         }
     }
 }

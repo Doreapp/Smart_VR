@@ -436,6 +436,7 @@ MonoBehaviour:
   head: {fileID: 963194225}
   environnement: {fileID: 1568116376}
   controller: {fileID: 165585583}
+  player: {fileID: 223974226}
   logText: {fileID: 1793089057}
   speedMultiplier: 0.05
   minHeight: -10
@@ -466,9 +467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcac34165d8d8ee448c43a1b9cd21a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.01
-  rotationSpeed: 0.1
-  environnement: {fileID: 1568116376}
+  movementSpeed: 0.05
+  rotationSpeed: 0.5
+  player: {fileID: 223974226}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,8 +693,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicMap: {fileID: 2894335716376165354, guid: 0cee3da292d235741be7a70d59a51788, type: 3}
-  size: 1
-  logText: {fileID: 0}
+  logText: {fileID: 1793089057}
+  player: {fileID: 223974226}
+  size: 2
+  tileSize: 3
 --- !u!4 &1568116378
 Transform:
   m_ObjectHideFlags: 0
