@@ -5,7 +5,7 @@ using Microsoft.Maps.Unity;
 
 public class mapLoader : MonoBehaviour
 {
-    public GameObject basicMap;
+    private GameObject basicMap;
     public int size = 3;
     public int renderSize = 10;
     List<GameObject> maps;
@@ -16,8 +16,27 @@ public class mapLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch(StaticCoordinates.CityNumber){
+            case 0:
+            basicMap = Resources.Load("prefabs/NYlibertyMap",typeof(GameObject)) as GameObject;
+            break;
+            case 1:
+            basicMap = Resources.Load("prefabs/NYmanMap",typeof(GameObject)) as GameObject;
+            break;
+            case 2:
+            basicMap = Resources.Load("prefabs/NYwtcMap",typeof(GameObject)) as GameObject;
+            break;
+            case 3:
+            basicMap = Resources.Load("prefabs/SeattleMap",typeof(GameObject)) as GameObject;
+            break;
+            default:
+            basicMap = Resources.Load("prefabs/SFMap",typeof(GameObject)) as GameObject;
+            break;
+        }
     	// Creating some maps
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
+        //basicMapRenderer._location.Latitude = 47.6267658388242f;
+        //basicMapRenderer.center.longitude = -122.36167001066251f;
     	maps = new List<GameObject>();
         for(int i = -size; i <= size; i++)
         {
