@@ -18,6 +18,8 @@ public class Inertie : MonoBehaviour
     private float globalTime = 0;
     private float timeSpent = 0;
 
+    private Vector3 meanDirection;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +42,8 @@ public class Inertie : MonoBehaviour
         {
             //Debug.Log("STOOP");
             controllerSpeed = 0;
-        }*/
-        
+        }
+        */
 
         globalTime += Time.deltaTime;
 
@@ -57,16 +59,31 @@ public class Inertie : MonoBehaviour
 
             timeSpent = 0;
         }
-    
         
 
         Vector3 resistanceForce = game_friction * velocity;
         Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
         Vector3 force = motorForce - resistanceForce;
+
+        //check if altitude is not too low
+        if (cam.transform.position.y <= 0.5) {
+            log($"cameraPos={cam.transform.position}; force={force};");
+            if ( force.y < 0 ) {
+                force.y  = - force.y;
+            }
+            else {
+                force.y = Mathf.Abs(force.magnitude);
+                force.x = 0;
+                force.z = 0;
+            }
+        }
+
+        //if we are capturing a rowing mouvement we only care about force in the plan (x, z) and in the same direction as our camera
+
         cam.AddForce(force, ForceMode.VelocityChange);
         
         //log($"test; force={force}; direction={direction}");
-        log($"controllerPos={controller.transform.position}; controllerSpeed={controllerSpeed};");
+        
 
         timeSpent += Time.deltaTime;
         if(timeSpent >= 0.2){
@@ -81,8 +98,12 @@ public class Inertie : MonoBehaviour
 
 
     private void log(string str) {
-        //Debug.Log(str);
         logText.text = str;
     }
+
+    public void setMeanDirectionForRowing(Vector3 directionRowing) {
+        meanDirection = directionRowing; 
+        Debug.Log($"MeanDirection={meanDirection}");
+    } 
     
 }
