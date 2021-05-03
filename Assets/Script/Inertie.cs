@@ -53,7 +53,7 @@ public class Inertie : MonoBehaviour
 
         // Rotation from direction (current direction of the motion) to the playerDirection (orientation of his eyes)
         Quaternion rotation = Quaternion.FromToRotation(direction, playerDirection);
-        Debug.Log($"rotation = {rotation.y}");
+        //Debug.Log($"rotation = {rotation.y}");
 
         // If the Y rotation (to the left/right) if enough large
         if(Mathf.Abs(rotation.y) >= minAngle){
