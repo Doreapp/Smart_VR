@@ -8,7 +8,7 @@ public class touchCamera : MonoBehaviour
 {
     void OnCollisionEnter(Collision info)
     {
-        Debug.Log(info.collider);
         Destroy(this.gameObject);
+        GameObject.Find("Main Camera").GetComponent<Scoring>().updateScore();
     }
 }

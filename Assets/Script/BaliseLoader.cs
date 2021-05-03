@@ -15,11 +15,13 @@ public class BaliseLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject balises = new GameObject("Balises");
+        balises.transform.SetParent(this.transform);
         string[] lines = file.text.Split ("\n" [0]);
         for (var i = 1; i < lines.Length; i ++) {
             string[] parts = lines[i].Split ("|" [0]);
             // Creating the balise
-            GameObject balise = Instantiate(basicBalise, this.transform);
+            GameObject balise = Instantiate(basicBalise, balises.transform);
             Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(double.Parse(parts[1]), double.Parse(parts[2]), 0));
             // Set the position of the balise 1 above the map
             balise.transform.position = pos + new Vector3(0f,1f,0f);
