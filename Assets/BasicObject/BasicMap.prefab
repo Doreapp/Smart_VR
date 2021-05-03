@@ -51,8 +51,8 @@ MonoBehaviour:
   _numElevationTileFallbackLods: 0
   _requestTilesAroundView: 0
   _center:
-    _latitude: 40.7621246091363
-    _longitude: -73.9675912282814
+    _latitude: 33.9431244835222
+    _longitude: -118.452467642727
   _zoomLevel: 18.243998
   _minimumZoomLevel: 1
   _maximumZoomLevel: 20
