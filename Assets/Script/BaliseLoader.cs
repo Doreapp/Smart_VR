@@ -52,6 +52,12 @@ public class BaliseLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GameObject camera = GameObject.Find("Main Camera");
+        foreach (Transform balise in GameObject.Find("Balises").transform)
+        {
+            if(Vector3.Distance (balise.position, camera.transform.position) < 1.5f){
+                Destroy(balise.gameObject);
+            }
+        }
     }
 }
