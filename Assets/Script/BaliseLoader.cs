@@ -1,9 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.Maps.Unity;
 using Microsoft.Geospatial;
 
+[Serializable]
+public class Map
+{
+  public string nom,pays;
+  public Balise[] balises;
+}
+
+[Serializable]
+public class Balise
+{
+  public string nom;
+  public float latitude,longitude;
+}
 
 public class BaliseLoader : MonoBehaviour
 {
@@ -17,17 +31,19 @@ public class BaliseLoader : MonoBehaviour
     {
         GameObject balises = new GameObject("Balises");
         balises.transform.SetParent(this.transform);
-        string[] lines = file.text.Split ("\n" [0]);
-        for (var i = 1; i < lines.Length; i ++) {
-            string[] parts = lines[i].Split ("|" [0]);
+
+        //TextAsset textAsset = Resources.Load<TextAsset>("../Maps/NewYork.json");
+        Map map = JsonUtility.FromJson<Map>(file.text);
+
+        foreach(Balise b in map.balises){
             // Creating the balise
             GameObject balise = Instantiate(basicBalise, balises.transform);
-            Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(double.Parse(parts[1]), double.Parse(parts[2]), 0));
+            Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(b.latitude, b.longitude, 0));
             // Set the position of the balise 1 above the map
             balise.transform.position = pos + new Vector3(0f,1f,0f);
             // Creating the text as a child of the balise
             TextMesh description = Instantiate(basicText, balise.transform);
-            description.text = parts[0];
+            description.text = b.nom;
             // Set the position of the text 2 above the map
             description.transform.position = pos + new Vector3(0f,2f,0f);
         }
