@@ -19,18 +19,28 @@ public class Inertie : MonoBehaviour
     private float timeSpent = 0;
 
     private Vector3 meanDirection;
+    public enum Exercice
+    {
+        MANDALIER,
+        ROWING,
+        BUTTERFLY
+    }
+    public Exercice exercice;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         cam.GetComponent<Rigidbody>().useGravity = false;
         game_friction = 0.02f;
+        exercice = Exercice.ROWING;
+        logText.anchor = TextAnchor.MiddleCenter;
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {       
+    {   
         Vector3 direction = head.transform.forward;
         Vector3 velocity = cam.velocity;
         
@@ -51,8 +61,33 @@ public class Inertie : MonoBehaviour
         timeSpent += Time.deltaTime;
         if(timeSpent >= 0.1){
             
-            var positionDiff = controller.transform.position - lastPosition;
+            Vector3 positionDiff = controller.transform.position - lastPosition;
             lastPosition = controller.transform.position;
+
+            switch(exercice)
+            {
+            case Exercice.MANDALIER:
+                //We only want to produce force for the controller movement in the plane (y, z)
+                positionDiff.x = 0;
+                log($"positionDiff={positionDiff}, lastPosition={lastPosition}");
+            break;
+
+            case Exercice.ROWING:
+                //if the controller is going forward, in the rowing exercice, the user isn't doing any effort so he doesn't produce force.
+                if (positionDiff.z > 0) { 
+                    positionDiff = new Vector3(0, 0, 0);
+                }
+                //we only want to produce force for the controller movement in the plane (x, y)
+                positionDiff.y = 0;
+                log($"positionDiff={positionDiff}, lastPosition={lastPosition}");
+            break;
+
+            case Exercice.BUTTERFLY:
+                //We only want to produce force for the controller movement in the plane (x, z)
+                positionDiff.y = 0;
+                log($"positionDiff={positionDiff}, lastPosition={lastPosition}");
+            break;
+            }
 
             controllerSpeed = Mathf.Abs(positionDiff.sqrMagnitude / timeSpent); 
             if(controllerSpeed < MIN_SPEED) controllerSpeed = 0;
@@ -63,26 +98,10 @@ public class Inertie : MonoBehaviour
 
         Vector3 resistanceForce = game_friction * velocity;
         Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
-        Vector3 force = motorForce - resistanceForce;
-
-        //check if altitude is not too low
-        if (cam.transform.position.y <= 0.5) {
-            log($"cameraPos={cam.transform.position}; force={force};");
-            if ( force.y < 0 ) {
-                force.y  = - force.y;
-            }
-            else {
-                force.y = Mathf.Abs(force.magnitude);
-                force.x = 0;
-                force.z = 0;
-            }
-        }
-
-        //if we are capturing a rowing mouvement we only care about force in the plan (x, z) and in the same direction as our camera
-
-        cam.AddForce(force, ForceMode.VelocityChange);
         
-        //log($"test; force={force}; direction={direction}");
+        Vector3 force = motorForce - resistanceForce;
+        cam.AddForce(force, ForceMode.VelocityChange);
+    
         
 
         timeSpent += Time.deltaTime;
