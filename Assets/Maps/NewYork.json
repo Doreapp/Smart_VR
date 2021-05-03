@@ -32,7 +32,11 @@
       "nom": "Statue of Liberty",
       "latitude": 40.68916447934468,
       "longitude": -74.0447142194674
+    },
+    {
+      "nom": "Ellis Island",
+      "latitude": 40.699457650738616,
+      "longitude": -74.03967186745514
     }
-  ],
-  "bestScore": 0.0
+  ]
 }

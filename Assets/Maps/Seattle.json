@@ -1,0 +1,52 @@
+{
+  "nom": "Seattle",
+  "pays": "United States",
+  "balises":
+  [
+    {
+      "nom": "Space Needle",
+      "latitude": 47.62021841667787,
+      "longitude": -122.34920317634237
+    },
+    {
+      "nom": "Hiram M Chittenden Locks",
+      "latitude": 47.66584581242879,
+      "longitude": -122.39651733068409
+    },
+    {
+      "nom": "Seattle Center",
+      "latitude": 47.621962132051884,
+      "longitude": -122.35168547339012
+    },
+    {
+      "nom": "Columbia Center",
+      "latitude": 47.60504090864789,
+      "longitude": -122.33057800657252
+    },
+    {
+      "nom": "Amazon Spheres",
+      "latitude": 47.6159174238239,
+      "longitude": -122.33937078849324
+    },
+    {
+      "nom": "Pioneer Square",
+      "latitude": 47.60184008024142,
+      "longitude": -122.3318865034785
+    },
+    {
+      "nom": "Harbor Island",
+      "latitude": 47.57923139010566,
+      "longitude": -122.35124365514746
+    },
+    {
+      "nom": "Green Lake",
+      "latitude": 47.679601331900514,
+      "longitude": -122.33537263681991
+    },
+    {
+      "nom": "Lake Union",
+      "latitude": 47.639808322973714,
+      "longitude": -122.33565823707983
+    }
+  ]
+}
