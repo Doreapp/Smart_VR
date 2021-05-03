@@ -82,7 +82,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258516363549095575}
-  m_Text: direction=(0,0, 0,0, 1,0) - rotation=0
+  m_Text: direction=(0,0, 0,0, 1,0) - rotation=-0,07845908
   m_OffsetZ: 0
   m_CharacterSize: 0.3
   m_LineSpacing: 1
