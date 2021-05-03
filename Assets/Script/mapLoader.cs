@@ -49,7 +49,7 @@ public class mapLoader : MonoBehaviour
         int playerTileZ = Mathf.FloorToInt((playerCenter.z+tileSize/2f)/(float)tileSize);
 
         if(lastPlayerTileX != playerTileX){
-            Debug.Log($"We need to create another line (x) - Player Tile : ({playerTileX}, {playerTileZ})");
+            //Debug.Log($"We need to create another line (x) - Player Tile : ({playerTileX}, {playerTileZ})");
             float side = Mathf.Sign(playerTileX - lastPlayerTileX);
 
             // Remove
@@ -75,7 +75,7 @@ public class mapLoader : MonoBehaviour
         }
 
         if(lastPlayerTileZ != playerTileZ){
-            Debug.Log($"We need to create another line (z) - Player Tile : ({playerTileX}, {playerTileZ})");
+            //Debug.Log($"We need to create another line (z) - Player Tile : ({playerTileX}, {playerTileZ})");
             float side = Mathf.Sign(playerTileZ - lastPlayerTileZ);
 
             // Remove
