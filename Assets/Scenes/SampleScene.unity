@@ -433,6 +433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5461339ff275fef4d9bde7bf808f8ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xRNode: 5
+  logText: {fileID: 0}
 --- !u!23 &386712799
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -684,9 +686,9 @@ MonoBehaviour:
   controller: {fileID: 1114040580}
   logText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
   coefSpeed: 0.5
-  minAngle: 0.3
-  coefRotation: 0
-  COMPUTER_CONTROL: 1
+  minAngle: 0.2
+  coefRotation: 1
+  COMPUTER_CONTROL: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

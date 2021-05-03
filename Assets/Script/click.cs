@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
-public class InputManager : MonoBehaviour
+public class click : MonoBehaviour
 {
     [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
