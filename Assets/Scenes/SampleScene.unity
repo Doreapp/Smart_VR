@@ -481,9 +481,13 @@ MonoBehaviour:
   game_friction: 0
   head: {fileID: 963194225}
   cam: {fileID: 223974229}
+  player: {fileID: 223974226}
   controller: {fileID: 1114040580}
   logText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
   coefSpeed: 0.5
+  minAngle: 0.3
+  coefRotation: 0
+  COMPUTER_CONTROL: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
