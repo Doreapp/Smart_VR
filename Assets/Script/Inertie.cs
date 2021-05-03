@@ -12,8 +12,8 @@ public class Inertie : MonoBehaviour
     public GameObject controller;
     public TextMesh logText;
     public float coefSpeed;
-    public float minAngle = 0.3f;
-    public float coefRotation;
+    public float minAngle = 0.2f;
+    public float coefRotation = 1;
 
     private Vector3 lastPosition = new Vector3(0,0,0);
     private const float MIN_SPEED = 0.0001f; 
@@ -88,7 +88,7 @@ public class Inertie : MonoBehaviour
             Debug.Log($"rotate direction by {coefRotation*Mathf.Sign(rotation.z)}");
             direction = Quaternion.Euler(0,coefRotation*Mathf.Sign(rotation.z),0)*direction;
         }*/
-        log($"direction={direction} - rotation={rotation.y}");
+        //log($"direction={direction} - rotation={rotation.y}");
 
         globalTime += Time.deltaTime;
         
@@ -104,8 +104,7 @@ public class Inertie : MonoBehaviour
                 case Exercice.MANDALIER:
                     //We only want to produce force for the controller movement in the plane (y, z)
                     positionDiff.x = 0;
-                    log($"positionDiff={positionDiff}, lastPosition={lastPosition}");
-                break;
+                    break;
 
                 case Exercice.ROWING:
                     //if the controller is going forward, in the rowing exercice, the user isn't doing any effort so he doesn't produce force.
@@ -114,14 +113,12 @@ public class Inertie : MonoBehaviour
                     }
                     //we only want to produce force for the controller movement in the plane (x, y)
                     positionDiff.y = 0;
-                    log($"positionDiff={positionDiff}, lastPosition={lastPosition}");
-                break;
+                    break;
 
                 case Exercice.BUTTERFLY:
                     //We only want to produce force for the controller movement in the plane (x, z)
                     positionDiff.y = 0;
-                    log($"positionDiff={positionDiff}, lastPosition={lastPosition}");
-                break;
+                    break;
                 }
 
                 controllerSpeed = Mathf.Abs(positionDiff.sqrMagnitude / timeSpent); 
@@ -130,23 +127,25 @@ public class Inertie : MonoBehaviour
                 timeSpent = 0;
             }
         }
+
     
         Vector3 resistanceForce = game_friction * velocity;
         Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
+        
+        //prevent user to go too high or too low
+        if (cam.transform.position.y <= 0.5) {
+            if (motorForce.y <= 0) {
+                motorForce.y = 0.01f;
+            }
+            if (cam.transform.position.y < 0.41) {
+                cam.transform.position = new Vector3 (cam.transform.position.y, 0.41f, cam.transform.position.z);
+            }
+        }else if(cam.transform.position.y >= 3.7 && motorForce.y >= 0) {
+                motorForce.y = - 0.01f;
+        }
+
         Vector3 force = motorForce - resistanceForce;
         cam.AddForce(force, ForceMode.VelocityChange);
-        
-        //log($"test; force={force}; direction={direction}");
-        //log($"controllerPos={controller.transform.position}; controllerSpeed={controllerSpeed};");
-
-        timeSpent += Time.deltaTime;
-        if(timeSpent >= 0.2){
-            //Debug.Log($"motorForce={motorForce}; resistanceForce={resistanceForce}; force={force}; time={globalTime}; ");
-            //Debug.Log($"direction={direction}; velocity={velocity};  time={globalTime}; ");
-            //Debug.Log($"game_friction={game_friction}; velocity={velocity}; resistanceForce={resistanceForce}; time={globalTime}; ");
-            //Debug.Log($"controllerSpeed={controllerSpeed}; motorForce={motorForce}; time={globalTime}; ");
-            timeSpent = 0;
-        }
         
     }
 
