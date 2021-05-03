@@ -488,6 +488,7 @@ MonoBehaviour:
   minAngle: 0.3
   coefRotation: 0
   COMPUTER_CONTROL: 1
+  exercice: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
