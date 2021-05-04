@@ -25,6 +25,8 @@ public static class StaticCoordinates{
     }
 
     public static int CityNumber{get;set;}
+    public static Map[] maps;
+    public static int SelectedCity = 0;
 
     public static void FecthMaps(){
         TextAsset file = Resources.Load<TextAsset>("Maps/AllMaps");
@@ -32,5 +34,6 @@ public static class StaticCoordinates{
         foreach(Map map in maps.maps){
             Debug.Log($"map: {map.name} in {map.country}");
         }
+        StaticCoordinates.maps = maps.maps;
     }
 }

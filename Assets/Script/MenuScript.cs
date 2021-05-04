@@ -6,9 +6,13 @@ using UnityEngine.XR;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
+
+    public GameObject basicButton;
+
     void Start(){
         StaticCoordinates.FecthMaps();
     }
@@ -22,6 +26,33 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     
+    }
+
+    public void LoadMapsMenu()
+    {
+        float y = 20;
+        for(int i = 0; i < StaticCoordinates.maps.Count(); i++){
+            AddButton(i, y);
+            y-=30;
+        }
+    }
+
+    private void AddButton(int mapIndex, float y){
+        var button = Instantiate(basicButton, 
+            new Vector3(transform.position.x, y, 300), 
+            Quaternion.Euler(0,0,0),
+            transform);
+        // Set the text
+        button.transform.GetChild(0).GetComponent<Text>().text = StaticCoordinates.maps[mapIndex].name;
+
+        //const int finalMapIndex = mapIndex;
+
+        // Set the listener
+        button.GetComponent<Button>().onClick.AddListener(() => { SetCity(mapIndex); });
+    }
+
+    public void SetCity(int mapIndex){
+        StaticCoordinates.SelectedCity = mapIndex;
     }
 
     public void ny(){
