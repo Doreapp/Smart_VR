@@ -9,7 +9,7 @@ using System;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField]
+    /*[SerializeField]
     private XRNode xRNode = XRNode.RightHand;
 
     private List<InputDevice> devices = new List<InputDevice>();
@@ -31,11 +31,11 @@ public class MenuScript : MonoBehaviour
         {
             GetDevice();
         }
-    }
+    }*/
 
     void Update()
     {
-        if (!device.isValid)
+        /*if (!device.isValid)
         {
             GetDevice();
         }
@@ -51,6 +51,11 @@ public class MenuScript : MonoBehaviour
         {
             triggerIsPressed = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-        }
+        }*/
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
