@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e40157b8e1b7cee4c82ef91d7e7c50c2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - baliseIcon: {fileID: 6284917215630184743, guid: 1702ece3cdc65cc4586a55068255dbc3, type: 3}
+  - compassImage: {instanceID: 0}
+  - player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
