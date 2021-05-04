@@ -906,6 +906,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Log Text
       objectReference: {fileID: 0}
+    - target: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
+      propertyPath: m_Color.rgba
+      value: 1493172223
+      objectReference: {fileID: 0}
     - target: {fileID: 258516363549095575, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
       propertyPath: m_Name
       value: Log Text

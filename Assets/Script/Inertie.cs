@@ -133,8 +133,11 @@ public class Inertie : MonoBehaviour
         Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
         
         //prevent user to go too high or too low
-        if (cam.transform.position.y <= 0.5) {
+        if (cam.transform.position.y <= 0.7) {
             if (motorForce.y <= 0) {
+                motorForce.y = 0;
+            }
+            if (cam.transform.position.y < 0.6) {
                 motorForce.y = 0.01f;
             }
             if (cam.transform.position.y < 0.41) {
