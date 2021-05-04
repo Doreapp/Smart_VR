@@ -484,10 +484,10 @@ MonoBehaviour:
   player: {fileID: 223974226}
   controller: {fileID: 1114040580}
   logText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
-  coefSpeed: 0.5
-  minAngle: 0.3
-  coefRotation: 0
-  COMPUTER_CONTROL: 1
+  coefSpeed: 0.1
+  minAngle: 0.2
+  coefRotation: 1
+  COMPUTER_CONTROL: 0
   exercice: 0
 --- !u!1 &963194225
 GameObject:
@@ -837,7 +837,7 @@ MonoBehaviour:
   basicBalise: {fileID: 1785783924605600854, guid: 6858ce107b4766e4993a45e831b1307a, type: 3}
   basicMapRenderer: {fileID: 2894335716376165344, guid: 0cee3da292d235741be7a70d59a51788, type: 3}
   basicText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
-  file: {fileID: 4900000, guid: b7809a836a24fb1449ba3ef303addc56, type: 3}
+  file: {fileID: 4900000, guid: 6801b7827239d4f45a513f2e19506fed, type: 3}
 --- !u!1001 &2030029597
 PrefabInstance:
   m_ObjectHideFlags: 0
