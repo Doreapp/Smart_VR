@@ -49,6 +49,8 @@ public class BaliseLoader : MonoBehaviour
             description.text = b.nom;
             // Set the position of the text 2 above the map
             description.transform.position = pos + new Vector3(0f,2f,0f);
+            //Ajout des balises à la boussole
+            compass.AddMarker(balise);
         }
     }
 

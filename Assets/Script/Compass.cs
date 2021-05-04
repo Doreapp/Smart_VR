@@ -36,9 +36,7 @@ public class Compass : MonoBehaviour
     public void DeleteMarker(GameObject balise)
     {
         Destroy(markerbalise[balise]);
-        markerbalise.Remove(balise);
-        
-        
+        markerbalise.Remove(balise);     
     }
 
     Vector2 GetPosOnCompass(GameObject balise)
