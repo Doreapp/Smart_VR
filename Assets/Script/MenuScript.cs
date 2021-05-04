@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System;
 
-public class click : MonoBehaviour
+public class MenuScript : MonoBehaviour
 {
     [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
@@ -44,14 +44,13 @@ public class click : MonoBehaviour
         bool triggerButtonValue = false;
         if (device.TryGetFeatureValue(CommonUsages.triggerButton, out triggerButtonValue) && triggerButtonValue && !triggerIsPressed)
         {
-            triggerIsPressed = true;
-            GameObject.Find("Pause").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
-
+        	triggerIsPressed = true;
+            GameObject.Find("Command Background").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
         }
         else if (!triggerButtonValue && triggerIsPressed)
         {
             triggerIsPressed = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
     }
 }
