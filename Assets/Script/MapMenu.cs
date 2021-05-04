@@ -8,11 +8,11 @@ public class MapMenu : MonoBehaviour
 {
     public GameObject basicButton;
     public GameObject mainMenu;
+    public Text cityText;
 
     // Start is called before the first frame update
     void Start()
     {
-        StaticCoordinates.FecthMaps();
         LoadMapsMenu();
     }
 
@@ -45,6 +45,7 @@ public class MapMenu : MonoBehaviour
 
     public void SetCity(int mapIndex){
         StaticCoordinates.SelectedCity = mapIndex;
+        cityText.text = StaticCoordinates.GetSelectedMap().name;
         transform.gameObject.SetActive(false);
         mainMenu.SetActive(true);
     }
