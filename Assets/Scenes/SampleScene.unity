@@ -838,7 +838,8 @@ MonoBehaviour:
   basicMapRenderer: {fileID: 2894335716376165344, guid: 0cee3da292d235741be7a70d59a51788, type: 3}
   basicText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
   file: {fileID: 4900000, guid: b5bf914b3212d4641bd761ec3658c849, type: 3}
-  y: 3
+  yBalise: 3
+  mode: 2
 --- !u!1001 &2030029597
 PrefabInstance:
   m_ObjectHideFlags: 0
