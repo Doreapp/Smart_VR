@@ -9,8 +9,6 @@ using System;
 
 public class MenuScript : MonoBehaviour
 {
-
-    public TextMesh logText;
     /*[SerializeField]
     private XRNode xRNode = XRNode.RightHand;
 
@@ -34,6 +32,7 @@ public class MenuScript : MonoBehaviour
             GetDevice();
         }
     }*/
+    
 
     void Update()
     {
@@ -58,11 +57,6 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame()
     {
-        log("true");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-    }
-
-    private void log(string str) {
-        logText.text = str;
     }
 }
