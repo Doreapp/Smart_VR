@@ -5,6 +5,8 @@ using UnityEngine;
 using Microsoft.Maps.Unity;
 using Microsoft.Geospatial;
 
+
+
 [Serializable]
 public class Map
 {

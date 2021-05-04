@@ -1,0 +1,157 @@
+{
+    "maps": [{
+            "name": "Seattle",
+            "country": "United States",
+            "lat": "47.6267658388242",
+            "lon": "-122.361670010662",
+            "balls": [{
+                    "name": "Space Needle",
+                    "lat": 47.62021841667787,
+                    "lon": -122.34920317634237
+                },
+                {
+                    "name": "Hiram M Chittenden Locks",
+                    "lat": 47.66584581242879,
+                    "lon": -122.39651733068409
+                },
+                {
+                    "name": "Seattle Center",
+                    "lat": 47.621962132051884,
+                    "lon": -122.35168547339012
+                },
+                {
+                    "name": "Columbia Center",
+                    "lat": 47.60504090864789,
+                    "lon": -122.33057800657252
+                },
+                {
+                    "name": "Amazon Spheres",
+                    "lat": 47.6159174238239,
+                    "lon": -122.33937078849324
+                },
+                {
+                    "name": "Pioneer Square",
+                    "lat": 47.60184008024142,
+                    "lon": -122.3318865034785
+                },
+                {
+                    "name": "Harbor Island",
+                    "lat": 47.57923139010566,
+                    "lon": -122.35124365514746
+                },
+                {
+                    "name": "Green Lake",
+                    "lat": 47.679601331900514,
+                    "lon": -122.33537263681991
+                },
+                {
+                    "name": "Lake Union",
+                    "lat": 47.639808322973714,
+                    "lon": -122.33565823707983
+                }
+            ]
+        },
+        {
+            "name": "Los Angeles",
+            "country": "United States",
+            "lat": "34.1",
+            "lon": "-118.3",
+            "balises": [{
+                    "name": "The Wizarding World Of Harry Potter",
+                    "lat": 34.1384555131497,
+                    "lon": -118.35353816069139
+                },
+                {
+                    "name": "Walt Disney Concert Hall",
+                    "lat": 34.055636049992835,
+                    "lon": -118.24977026489347
+                },
+                {
+                    "name": "Los Angeles Union Station",
+                    "lat": 34.05604638814957,
+                    "lon": -118.23740838841688
+                },
+                {
+                    "name": "Hollywood Sign",
+                    "lat": 34.13408353610829,
+                    "lon": -118.32153784643415
+                },
+                {
+                    "name": "Universal Studios Hollywood",
+                    "lat": 34.1381025286471,
+                    "lon": -118.35348550297904
+                },
+                {
+                    "name": "Venice Beach",
+                    "lat": 33.993790497904456,
+                    "lon": -118.4811089506103
+                },
+                {
+                    "name": "Angels Flight Railway",
+                    "lat": 34.0513327487215,
+                    "lon": -118.25020367873306
+                },
+                {
+                    "name": "Hollywood Boulevard",
+                    "lat": 34.10158674397526,
+                    "lon": -118.34028446335773
+                },
+                {
+                    "name": "Santa Monica Pier",
+                    "lat": 34.009957557532246,
+                    "lon": -118.49616988144288
+                }
+            ]
+        },
+        {
+            "name": "New York City",
+            "country": "United States",
+            "lat": "40.754093101735",
+            "lon": "-73.9801901052226",
+            "balises": [{
+                    "name": "Columbia University",
+                    "lat": 40.807687748379614,
+                    "lon": -73.96216444944652
+                },
+                {
+                    "name": "Central Park",
+                    "lat": 40.78200991582542,
+                    "lon": -73.96556304564677
+                },
+                {
+                    "name": "Times Square",
+                    "lat": 40.757968962531585,
+                    "lon": -73.9855738291789
+                },
+                {
+                    "name": "Empire State Building",
+                    "lat": 40.74826943251152,
+                    "lon": -73.98558809277915
+                },
+                {
+                    "name": "One World Trade Center",
+                    "lat": 40.71204563108596,
+                    "lon": -74.01300604451934
+                },
+                {
+                    "name": "Statue of Liberty",
+                    "lat": 40.68916447934468,
+                    "lon": -74.0447142194674
+                },
+                {
+                    "name": "Ellis Island",
+                    "lat": 40.699457650738616,
+                    "lon": -74.03967186745514
+                }
+            ]
+        },
+        {
+            "name": "San Fransisco",
+            "country": "United States",
+            "lat": "37.82",
+            "lon": "-122.478",
+            "balls": []
+        }
+    ]
+
+}

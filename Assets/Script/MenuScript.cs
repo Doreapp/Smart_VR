@@ -9,6 +9,9 @@ using System;
 
 public class MenuScript : MonoBehaviour
 {
+    void Start(){
+        StaticCoordinates.FecthMaps();
+    }
 
     public void PlayGame()
     {
@@ -22,22 +25,22 @@ public class MenuScript : MonoBehaviour
     }
 
     public void ny(){
- float[] manhattan = {40.754093101735f, -73.98019010522262f};
- float[] owtc = {40.713303878401994f, -74.01293587215311f};
- float[] liberty = {40.69064070311502f, -74.043466858791f};
- 
- System.Random aleatoire = new System.Random();
- int lieu = aleatoire.Next(3);
- 
-StaticCoordinates.CityNumber = lieu;
- }
+        float[] manhattan = {40.754093101735f, -73.98019010522262f};
+        float[] owtc = {40.713303878401994f, -74.01293587215311f};
+        float[] liberty = {40.69064070311502f, -74.043466858791f};
+        
+        System.Random aleatoire = new System.Random();
+        int lieu = aleatoire.Next(3);
+    
+        StaticCoordinates.CityNumber = lieu;
+    }
 
-  public void seattle(){
-     StaticCoordinates.CityNumber = 3;
- }
+    public void seattle(){
+        StaticCoordinates.CityNumber = 3;
+    }
 
- public void sf(){
-     StaticCoordinates.CityNumber = 4;
- }
+    public void sf(){
+        StaticCoordinates.CityNumber = 4;
+    }
 
 }
