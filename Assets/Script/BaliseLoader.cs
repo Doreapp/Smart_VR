@@ -39,8 +39,10 @@ public class BaliseLoader : MonoBehaviour
 
     	switch (mode) {
     		case 0 :
+    			// No balises
     			break;
     		case 1 :
+    			// Balises from a json, points of interest
 		        foreach(Balise b in map.balises){
 		            // Creating the balise
 		            GameObject balise = Instantiate(basicBalise, balises.transform);
@@ -55,13 +57,14 @@ public class BaliseLoader : MonoBehaviour
 		        }
 		    	break;	
 	    	case 2 :
+	    		// 20 Randoms Balises
 	    		float delta = 0.5f;
 	    		for (int i = 0; i < 20; i++){
 	    			float latitude = map.balises[0].latitude + UnityEngine.Random.Range(-delta, delta);
 	    			float longitude = map.balises[0].longitude + UnityEngine.Random.Range(-delta, delta);
 	    			GameObject balise = Instantiate(basicBalise, balises.transform);
 		            Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(latitude, longitude, 0));
-	    			// Set the position of the balise 1 above the map
+	    			// Set the position of the balise y above the map
 		            balise.transform.position = pos + new Vector3(0f,yBalise,0f);
 	    		}
 	    		break;
