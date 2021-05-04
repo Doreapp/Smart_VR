@@ -96,28 +96,6 @@ public class mapLoader : MonoBehaviour
         xMax = (tileCenterX+size)*tileSize;
         zMin = (tileCenterZ-size)*tileSize;
         zMax = (tileCenterZ+size)*tileSize;
-        // Find bounds 
-        /*if(playerAngle % 4 == 0){
-            xMin = xCenter-realSize;
-            xMax = xCenter+realSize;
-        } else if(playerAngle < 4) {
-            xMin = xCenter;
-            xMax = xCenter+2*realSize;
-        } else {
-            xMin = xCenter-2*realSize;
-            xMax = xCenter;
-        }
-        int zPlayerAngle = (playerAngle + 6)%8;
-        if(zPlayerAngle%4 == 0){
-            zMin = zCenter-realSize;
-            zMax = zCenter+realSize;
-        } else if (zPlayerAngle < 4){
-            zMin = zCenter-2*realSize;
-            zMax = zCenter;
-        } else {
-            zMin = zCenter;
-            zMax = zCenter+2*realSize;
-        }*/
 
         // Remove out of bounds tiles and find current shown bounds
         float currentMaxX = xMin, currentMinX = xMax, currentMaxZ = zMin, currentMinZ = zMax;

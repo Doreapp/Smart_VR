@@ -79,17 +79,6 @@ public class Inertie : MonoBehaviour
         // Update direction in z
         direction.y = playerDirection.y;
 
-        /*
-        if(Mathf.Abs(rotation.x) >= minAngle){
-            Debug.Log($"rotate direction by {coefRotation*Mathf.Sign(rotation.x)}");
-            direction = Quaternion.Euler(0,coefRotation*Mathf.Sign(rotation.x),0)*direction;
-        }
-        if(Mathf.Abs(rotation.z) >= minAngle){
-            Debug.Log($"rotate direction by {coefRotation*Mathf.Sign(rotation.z)}");
-            direction = Quaternion.Euler(0,coefRotation*Mathf.Sign(rotation.z),0)*direction;
-        }*/
-        //log($"direction={direction} - rotation={rotation.y}");
-
         globalTime += Time.deltaTime;
         
         if(!COMPUTER_CONTROL){
