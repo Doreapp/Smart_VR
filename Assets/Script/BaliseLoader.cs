@@ -26,11 +26,13 @@ public class BaliseLoader : MonoBehaviour
     public TextMesh basicText;
     public TextAsset file;
     public Compass compass;
+    public float yBalise;
+    public int mode;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject balises = new GameObject("Balises");
+    	GameObject balises = new GameObject("Balises");
         balises.transform.SetParent(this.transform);
 
         //TextAsset textAsset = Resources.Load<TextAsset>("../Maps/NewYork.json");
@@ -47,8 +49,6 @@ public class BaliseLoader : MonoBehaviour
             description.text = b.nom;
             // Set the position of the text 2 above the map
             description.transform.position = pos + new Vector3(0f,2f,0f);
-            //Add the balise to the compass
-            compass.AddMarker(balise);
         }
     }
 
