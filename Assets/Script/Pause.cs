@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System;
 
-public class click : MonoBehaviour
+public class Pause : MonoBehaviour
 {
     [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
@@ -41,14 +41,14 @@ public class click : MonoBehaviour
         }
 
         // capturing trigger button press and release    
-        bool triggerButtonValue = false;
-        if (device.TryGetFeatureValue(CommonUsages.triggerButton, out triggerButtonValue) && triggerButtonValue && !triggerIsPressed)
+        bool primaryButtonValue = false;
+        if (device.TryGetFeatureValue(CommonUsages.primaryButton, out primaryButtonValue) && primaryButtonValue && !triggerIsPressed)
         {
             triggerIsPressed = true;
             GameObject.Find("Pause").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
 
         }
-        else if (!triggerButtonValue && triggerIsPressed)
+        else if (!primaryButtonValue && triggerIsPressed)
         {
             triggerIsPressed = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
