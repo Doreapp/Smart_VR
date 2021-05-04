@@ -9,54 +9,35 @@ using System;
 
 public class MenuScript : MonoBehaviour
 {
-    /*[SerializeField]
-    private XRNode xRNode = XRNode.RightHand;
-
-    private List<InputDevice> devices = new List<InputDevice>();
-
-    private InputDevice device;
-
-    //to avoid repeat readings
-    private bool triggerIsPressed;
-
-    void GetDevice()
-    {
-        InputDevices.GetDevicesAtXRNode(xRNode, devices);
-        device = devices.FirstOrDefault();
-    }
-
-    void OnEnable()
-    {
-        if (!device.isValid)
-        {
-            GetDevice();
-        }
-    }*/
-    
-
-    void Update()
-    {
-        /*if (!device.isValid)
-        {
-            GetDevice();
-        }
-
-        // capturing trigger button press and release    
-        bool triggerButtonValue = false;
-        if (device.TryGetFeatureValue(CommonUsages.triggerButton, out triggerButtonValue) && triggerButtonValue && !triggerIsPressed)
-        {
-        	triggerIsPressed = true;
-            GameObject.Find("Command Background").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
-        }
-        else if (!triggerButtonValue && triggerIsPressed)
-        {
-            triggerIsPressed = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-        }*/
-    }
 
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    
+    }
+
+    public void ny(){
+ float[] manhattan = {40.754093101735f, -73.98019010522262f};
+ float[] owtc = {40.713303878401994f, -74.01293587215311f};
+ float[] liberty = {40.69064070311502f, -74.043466858791f};
+ 
+ System.Random aleatoire = new System.Random();
+ int lieu = aleatoire.Next(3);
+ 
+StaticCoordinates.CityNumber = lieu;
+ }
+
+  public void seattle(){
+     StaticCoordinates.CityNumber = 3;
+ }
+
+ public void sf(){
+     StaticCoordinates.CityNumber = 4;
+ }
+
 }
