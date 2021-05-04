@@ -38,6 +38,8 @@ public class BaliseLoader : MonoBehaviour
         Map map = JsonUtility.FromJson<Map>(file.text);
 
     	switch (mode) {
+    		case 0 :
+    			break;
     		case 1 :
 		        foreach(Balise b in map.balises){
 		            // Creating the balise
