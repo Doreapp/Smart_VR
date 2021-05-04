@@ -28,6 +28,10 @@ public static class StaticCoordinates{
     public static Map[] maps;
     public static int SelectedCity = 0;
 
+    public static Map GetSelectedMap(){
+        return maps[SelectedCity];
+    }
+
     public static void FecthMaps(){
         TextAsset file = Resources.Load<TextAsset>("Maps/AllMaps");
         Maps maps = JsonUtility.FromJson<Maps>(file.text);

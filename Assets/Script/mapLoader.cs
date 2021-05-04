@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.Maps.Unity;
+using Microsoft.Geospatial;
 
 public class mapLoader : MonoBehaviour
 {
@@ -20,30 +21,18 @@ public class mapLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Choosing the right prefab for the right city
-        switch(StaticCoordinates.CityNumber){
-            case 0:
-            basicMap = Resources.Load("prefabs/NYlibertyMap",typeof(GameObject)) as GameObject;
-            break;
-            case 1:
-            basicMap = Resources.Load("prefabs/NYmanMap",typeof(GameObject)) as GameObject;
-            break;
-            case 2:
-            basicMap = Resources.Load("prefabs/NYwtcMap",typeof(GameObject)) as GameObject;
-            break;
-            case 3:
-            basicMap = Resources.Load("prefabs/SeattleMap",typeof(GameObject)) as GameObject;
-            break;
-            default:
-            basicMap = Resources.Load("prefabs/SFMap",typeof(GameObject)) as GameObject;
-            break;
-        }
-        
         // Moving the camera above the terrain
         GameObject.Find("XR Rig").transform.position += new Vector3(0,3,0);
-    	// Creating some maps
+
+    	// Getting the map rendered 
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
-    	maps = new List<GameObject>();
+    	// Position it above the selected Map
+        StaticCoordinates.Map selectedMap = StaticCoordinates.GetSelectedMap();
+        basicMapRenderer.Center = new LatLon(selectedMap.lat, selectedMap.lon);
+
+        maps = new List<GameObject>();
+        
+        // Inflating the chunks
         for(int i = -size; i <= size; i++)
         {
             for(int j = -size; j <= size; j++)

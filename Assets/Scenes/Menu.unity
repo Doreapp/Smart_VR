@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 306051857}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -363,7 +363,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 746841517}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: LoadMapsMenu
         m_Mode: 1
@@ -638,10 +638,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 306051851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28ca367b77b72a4cb5346c5f3a7686b, type: 3}
+  m_Script: {fileID: 11500000, guid: 58cb3de0c2fa9a540b3b24eed308ce67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicButton: {fileID: 0}
 --- !u!1 &312139364
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,10 +904,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 746841516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28ca367b77b72a4cb5346c5f3a7686b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b779b6b45f1f9246b1ce235d60641b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   basicButton: {fileID: 3591592528754995709, guid: 470a2d45fc3c09d4cb5d06fb5939842f, type: 3}
+  mainMenu: {fileID: 306051851}
 --- !u!114 &746841518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 306051857}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
