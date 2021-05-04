@@ -20,8 +20,6 @@ public class mapLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Moving the camera above the terrain
-        GameObject.Find("XR Rig").transform.position += new Vector3(0,3,0);
     	// Creating some maps
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
     	maps = new List<GameObject>();
