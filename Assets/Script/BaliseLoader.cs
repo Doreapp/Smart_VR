@@ -25,6 +25,7 @@ public class BaliseLoader : MonoBehaviour
     public MapRenderer basicMapRenderer;
     public TextMesh basicText;
     public TextAsset file;
+    public float y;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +41,12 @@ public class BaliseLoader : MonoBehaviour
             GameObject balise = Instantiate(basicBalise, balises.transform);
             Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(b.latitude, b.longitude, 0));
             // Set the position of the balise 1 above the map
-            balise.transform.position = pos + new Vector3(0f,1f,0f);
+            balise.transform.position = pos + new Vector3(0f,y,0f);
             // Creating the text as a child of the balise
             TextMesh description = Instantiate(basicText, balise.transform);
             description.text = b.nom;
             // Set the position of the text 2 above the map
-            description.transform.position = pos + new Vector3(0f,2f,0f);
+            description.transform.position = pos + new Vector3(0f,y+1,0f);
         }
     }
 

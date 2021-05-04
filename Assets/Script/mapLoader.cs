@@ -17,20 +17,23 @@ public class mapLoader : MonoBehaviour
     // Int between 0 and 7, where the player is looking at (0=front, 1=front-left, 2=left, 3=back-left...)
     int lastPlayerAngle = 0;
 
+    // Part of the 360° rotation to discretise
+    private int angleCount;
+
     private MapRenderer basicMapRenderer;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        // Moving the camera above the terrain
-        GameObject.Find("XR Rig").transform.position += new Vector3(0,3,0);
+        angleCount = size*2*4;
+
     	// Creating some maps
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
     	maps = new List<GameObject>();
         for(int x = -size; x <= size; x++)
         {
-            for(int z = 0; z <= 2*size; z++)
+            for(int z = -1; z <= 2*size - 1; z++)
             {
                 GameObject tile = Instantiate(basicMap, 
                     new Vector3(x * tileSize, transform.position.y, z * tileSize), 
@@ -71,16 +74,30 @@ public class mapLoader : MonoBehaviour
     Create tiles inexistantes inbounds
     **/
     private void updateTiles(int playerAngle, int playerTileX, int playerTileZ){
+        float realAngle = playerAngle*360f * Mathf.Deg2Rad/(float)angleCount;
         // Bounds
         float xMin, xMax, zMin, zMax;
         // Player position
-        float xCenter = playerTileX*tileSize;
-        float zCenter = playerTileZ*tileSize;
-        // Size use in calculations
-        float realSize = size*tileSize;
+        float xCenter = playerTileX;
+        float zCenter = playerTileZ;
 
+        
+        Debug.Log($"tileCenter : ({playerTileX + Mathf.Sin(realAngle)*size}, {playerTileZ + Mathf.Cos(realAngle)*size})");
+
+        float floatingCenterX = playerTileX + Mathf.Sin(realAngle)*(size-1);
+        float floatingCenterZ = playerTileZ + Mathf.Cos(realAngle)*(size-1);
+
+        float tileCenterX = Mathf.Sign(floatingCenterX)*(int)(Mathf.Abs(floatingCenterX)+0.9f);
+        float tileCenterZ = Mathf.Sign(floatingCenterZ)*(int)(Mathf.Abs(floatingCenterZ)+0.9f);
+
+        Debug.Log($"tileCenter : ({tileCenterX}, {tileCenterZ})");
+
+        xMin = (tileCenterX-size)*tileSize;
+        xMax = (tileCenterX+size)*tileSize;
+        zMin = (tileCenterZ-size)*tileSize;
+        zMax = (tileCenterZ+size)*tileSize;
         // Find bounds 
-        if(playerAngle % 4 == 0){
+        /*if(playerAngle % 4 == 0){
             xMin = xCenter-realSize;
             xMax = xCenter+realSize;
         } else if(playerAngle < 4) {
@@ -100,7 +117,7 @@ public class mapLoader : MonoBehaviour
         } else {
             zMin = zCenter;
             zMax = zCenter+2*realSize;
-        }
+        }*/
 
         // Remove out of bounds tiles and find current shown bounds
         float currentMaxX = xMin, currentMinX = xMax, currentMaxZ = zMin, currentMinZ = zMax;
@@ -166,12 +183,13 @@ public class mapLoader : MonoBehaviour
     Normalized the player angle from degree base to an enumeration base (see player angle def)
     */
     private int normalizePlayerAngle(float angle){
-        angle += 22.5f;
+        float anglePart = 360f/(float)angleCount;
+        angle += anglePart/2f;
         while(angle < 0){
             angle += 3600;
         }
         angle = angle % 360;
-        return (int) (angle/45);
+        return (int) (angle/anglePart);
     }
 
     /**
