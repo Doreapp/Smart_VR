@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 306051854}
   - component: {fileID: 306051853}
   - component: {fileID: 306051852}
+  - component: {fileID: 306051857}
   m_Layer: 5
   m_Name: Canvas Menu
   m_TagString: Untagged
@@ -418,6 +419,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &306051857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306051851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28ca367b77b72a4cb5346c5f3a7686b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330509810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,9 +2494,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: b28ca367b77b72a4cb5346c5f3a7686b, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 306051857}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
