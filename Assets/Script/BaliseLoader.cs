@@ -33,6 +33,22 @@ public class BaliseLoader : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        foreach (Transform balise in ballsFolder.transform)
+        {
+            if (Vector3.Distance(balise.position, cam.transform.position) > 25f)
+            {
+                balise.localScale = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                balise.localScale = new Vector3(1, 1, 1);
+            }
+        }
+    }
+
     // Spawn balls at the coordinates defined in the Data
     void spawnBalls(){
 
@@ -67,20 +83,6 @@ public class BaliseLoader : MonoBehaviour
             ball.transform.position = pos + new Vector3(0f,yBall,0f);
             // Adding ball to the compass
             compass.AddMarker(ball);
-            
-    // Update is called once per frame
-    void Update()
-    {
-        foreach (Transform balise in ballsFolder.transform)
-        {
-            if (Vector3.Distance(balise.position, cam.transform.position) > 25f)
-            {
-                balise.localScale = new Vector3(0, 0, 0);
-            }
-            else
-            {
-                balise.localScale = new Vector3(1, 1, 1);
-            }
         }
     }
 }
