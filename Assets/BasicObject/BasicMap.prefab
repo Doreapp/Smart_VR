@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2894335717163041311}
   - component: {fileID: 2894335716376165344}
+  - component: {fileID: -4416720985439280093}
   m_Layer: 0
   m_Name: BasicMap
   m_TagString: Untagged
@@ -46,13 +47,13 @@ MonoBehaviour:
   _version: 3
   _mapSession: {fileID: 0}
   _mapEdgeColor: {r: 0.62352943, g: 0.64705884, b: 0.69411767, a: 1}
-  _mapEdgeColorFadeDistance: 0.02
+  _mapEdgeColorFadeDistance: 0
   _detailOffset: -1
   _numElevationTileFallbackLods: 0
   _requestTilesAroundView: 0
   _center:
-    _latitude: 40.73
-    _longitude: -74
+    _latitude: 47.626766204834
+    _longitude: -122.361671447754
   _zoomLevel: 18.243998
   _minimumZoomLevel: 1
   _maximumZoomLevel: 20
@@ -70,9 +71,27 @@ MonoBehaviour:
   _clippingVolumeMaterial: {fileID: 0}
   _clippingVolumeDistanceTextureResolution: 0
   _textureTileLayers:
-    _list: []
+    _list:
+    - {fileID: -4416720985439280093}
   _elevationTileLayers:
     _list: []
   _hideTileLayerComponents: 1
   _mapColliderType: 1
   _mapCollider: {fileID: 0}
+--- !u!114 &-4416720985439280093
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894335716376165354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1124163735, guid: f58183a31672bf641bbeeaef3d4759c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _imageryType: 1
+  _areRoadsEnabled: 0
+  _areLabelsEnabled: 0
+  _isHillShadingEnabled: 1
+  _imageryStyle: 0
