@@ -124,8 +124,6 @@ public class mapLoader : MonoBehaviour
             }
         }
 
-        Debug.Log($"nBounds[x:{xMin}-{xMax}, z:{zMin}-{zMax}] cBounds[x:{currentMinX}-{currentMaxX}, z:{currentMinZ}-{currentMaxZ}]");
-
         // Fill tiles inexistants and inbounds
         for(float x = currentMaxX+tileSize; x <= xMax; x+= tileSize){
             for(float z = zMin; z <= zMax; z+= tileSize){

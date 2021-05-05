@@ -9,12 +9,13 @@ using Microsoft.Geospatial;
 
 public class BaliseLoader : MonoBehaviour
 {
-    public GameObject balls;
     public GameObject basicBalise;
     public MapRenderer basicMapRenderer;
     public TextMesh basicText;
     public Compass compass;
     public int yBall;
+    public GameObject ballsFolder;
+    public GameObject cam;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class BaliseLoader : MonoBehaviour
 
         foreach(StaticCoordinates.Ball b in map.balls){
             // Creating the ball
-            GameObject ball = Instantiate(basicBalise, balls.transform);
+            GameObject ball = Instantiate(basicBalise, ballsFolder.transform);
             Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(b.lat, b.lon, 0));
             // Set the position of the ball yBall above the map
             ball.transform.position = pos + new Vector3(0f,yBall,0f);
@@ -60,12 +61,26 @@ public class BaliseLoader : MonoBehaviour
         for (int i = 0; i < 20; i++){
             float latitude = StaticCoordinates.GetMap().lat + UnityEngine.Random.Range(-delta, delta);
             float longitude = StaticCoordinates.GetMap().lon + UnityEngine.Random.Range(-delta, delta);
-            GameObject ball = Instantiate(basicBalise, balls.transform);
+            GameObject ball = Instantiate(basicBalise, ballsFolder.transform);
             Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(latitude, longitude, 0));
             // Set the position of the balise yBall above the map
             ball.transform.position = pos + new Vector3(0f,yBall,0f);
             // Adding ball to the compass
             compass.AddMarker(ball);
+            
+    // Update is called once per frame
+    void Update()
+    {
+        foreach (Transform balise in ballsFolder.transform)
+        {
+            if (Vector3.Distance(balise.position, cam.transform.position) > 25f)
+            {
+                balise.localScale = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                balise.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
 }
