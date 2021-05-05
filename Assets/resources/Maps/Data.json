@@ -166,12 +166,73 @@
             ]
         },
         {
-            "name": "San Fransisco",
-            "country": "United States",
-            "lat": "37.82",
-            "lon": "-122.478",
-            "balls": []
+            "name": "Venise",
+            "country": "Italie",
+            "lat": "45.43713",
+            "lon": "12.33265",
+            "balls": [{
+                "name": "Saint Mark's Basilica",
+                "lat": 45.4345,
+                "lon": 12.3396
+            },
+            {
+                "name": "Doge's Palace",
+                "lat": 45.433611,
+                "lon": 12.339449
+            },
+            {
+                "name": "Rialto Bridge",
+                "lat": 45.438079,
+                "lon": 12.335881
+            },
+            {
+                "name": "Bridge of Sighs",
+                "lat": 45.433820,
+                "lon": 12.340880
+            },
+            {
+                "name": "Venetian Arsenal",
+                "lat": 45.434498262,
+                "lon": 12.351831926
+            }
+
+
+            ]
+        },
+        {
+            "name": "Montréal",
+            "country": "Canada",
+            "lat": "45.50884",
+            "lon": "-73.58781",
+            "balls": [{
+                "name": "Royal Mount",
+                "lat": 45.5167,
+                "lon": -73.65
+            },
+            {
+                "name": "Notre Dame Basilica",
+                "lat": 45.5026896559,
+                "lon": -73.5537561183
+            },
+            {
+                "name": "La Ronde",
+                "lat": 45.520164586,
+                "lon": -73.534331196
+            },
+            {
+                "name": "Old Port",
+                "lat": 45.504886,
+                "lon": -73.552386
+            },
+            {
+                "name": "Biodome",
+                "lat": 45.55583111,
+                "lon": -73.543164494
+            }
+
+            ]
         }
+
     ]
 
 }
