@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.Maps.Unity;
+using Microsoft.Geospatial;
 
 public class mapLoader : MonoBehaviour
 {
@@ -28,9 +29,15 @@ public class mapLoader : MonoBehaviour
     {
         angleCount = size*2*4;
 
-    	// Creating some maps
+    	// Getting the map rendered 
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
-    	maps = new List<GameObject>();
+    	// Position it above the selected Map
+        StaticCoordinates.Map selectedMap = StaticCoordinates.GetSelectedMap();
+        basicMapRenderer.Center = new LatLon(selectedMap.lat, selectedMap.lon);
+
+        maps = new List<GameObject>();
+        
+        // Inflating the chunks
         for(int x = -size; x <= size; x++)
         {
             for(int z = -1; z <= 2*size - 1; z++)
