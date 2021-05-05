@@ -1,4 +1,13 @@
 {
+    "modes": [{
+        "name": "Sans balises"
+    },
+    {
+        "name": "Avec balises"
+    },
+    {
+        "name": "Balises aléatoires"
+    }],
     "maps": [{
             "name": "Seattle",
             "country": "United States",

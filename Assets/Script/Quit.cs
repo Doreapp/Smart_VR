@@ -45,8 +45,6 @@ public class Quit : MonoBehaviour
         if (device.TryGetFeatureValue(CommonUsages.primaryButton, out primaryButtonValue) && primaryButtonValue && !triggerIsPressed)
         {
             triggerIsPressed = true;
-            GameObject.Find("Quit").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
-
         }
         else if (!primaryButtonValue && triggerIsPressed)
         {

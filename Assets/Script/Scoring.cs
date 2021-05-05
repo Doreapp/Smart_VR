@@ -21,7 +21,7 @@ public class Scoring : MonoBehaviour
     void Start()
     {
         startTime = Time.timeAsDouble;
-        initialBallCount = StaticCoordinates.GetSelectedMap().balls.Count();
+        initialBallCount = StaticCoordinates.GetMap().balls.Count();
     	
         int ballsRemaining = ballsFolder.transform.childCount;
         scoreText.text = $"Balises restantes: {ballsRemaining}";

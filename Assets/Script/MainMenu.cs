@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public Text cityText;
+    public Text cityText, modeText;
 
     void Start(){
-        StaticCoordinates.FecthMaps();
-        cityText.text = StaticCoordinates.GetSelectedMap().name;
+        StaticCoordinates.FecthData();
+        cityText.text = StaticCoordinates.GetMap().name;
+        modeText.text = StaticCoordinates.GetMode().name;
     }
 
     public void PlayGame()

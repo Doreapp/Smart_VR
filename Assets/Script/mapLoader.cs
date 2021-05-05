@@ -32,7 +32,7 @@ public class mapLoader : MonoBehaviour
     	// Getting the map rendered 
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
     	// Position it above the selected Map
-        StaticCoordinates.Map selectedMap = StaticCoordinates.GetSelectedMap();
+        StaticCoordinates.Map selectedMap = StaticCoordinates.GetMap();
         basicMapRenderer.Center = new LatLon(selectedMap.lat, selectedMap.lon);
 
         maps = new List<GameObject>();
