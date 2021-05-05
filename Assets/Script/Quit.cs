@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System;
 
-public class Pause : MonoBehaviour
+public class Quit : MonoBehaviour
 {
     [SerializeField]
     private XRNode xRNode = XRNode.RightHand;
@@ -45,7 +45,7 @@ public class Pause : MonoBehaviour
         if (device.TryGetFeatureValue(CommonUsages.primaryButton, out primaryButtonValue) && primaryButtonValue && !triggerIsPressed)
         {
             triggerIsPressed = true;
-            GameObject.Find("Pause").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
+            GameObject.Find("Quit").GetComponent<Renderer>().material.SetColor("_SpecColor", Color.red);
 
         }
         else if (!primaryButtonValue && triggerIsPressed)

@@ -19,7 +19,6 @@ public class BaliseLoader : MonoBehaviour
         GameObject balises = new GameObject("Balises");
         balises.transform.SetParent(this.transform);
 
-        //TextAsset textAsset = Resources.Load<TextAsset>("../Maps/NewYork.json");
         StaticCoordinates.Map map = StaticCoordinates.GetSelectedMap();
 
         foreach(StaticCoordinates.Ball b in map.balls){

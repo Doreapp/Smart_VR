@@ -35,6 +35,6 @@ public static class StaticCoordinates{
     public static void FecthMaps(){
         TextAsset file = Resources.Load<TextAsset>("Maps/AllMaps");
         Maps maps = JsonUtility.FromJson<Maps>(file.text);
-        StaticCoordinates.maps = maps.maps;
+        StaticCoordinates.maps = maps.maps;        
     }
 }

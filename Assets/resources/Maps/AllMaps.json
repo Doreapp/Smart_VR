@@ -56,7 +56,7 @@
             "country": "United States",
             "lat": "34.1",
             "lon": "-118.3",
-            "balises": [{
+            "balls": [{
                     "name": "The Wizarding World Of Harry Potter",
                     "lat": 34.1384555131497,
                     "lon": -118.35353816069139
@@ -108,7 +108,7 @@
             "country": "United States",
             "lat": "40.754093101735",
             "lon": "-73.9801901052226",
-            "balises": [{
+            "balls": [{
                     "name": "Columbia University",
                     "lat": 40.807687748379614,
                     "lon": -73.96216444944652

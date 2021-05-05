@@ -810,7 +810,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause (A)
+  m_Text: Quitter (A)
 --- !u!222 &1302487442
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -985,7 +985,6 @@ MonoBehaviour:
   basicBalise: {fileID: 1785783924605600854, guid: 6858ce107b4766e4993a45e831b1307a, type: 3}
   basicMapRenderer: {fileID: 2894335716376165344, guid: 0cee3da292d235741be7a70d59a51788, type: 3}
   basicText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
-  file: {fileID: 4900000, guid: 6801b7827239d4f45a513f2e19506fed, type: 3}
 --- !u!1 &1753692134
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +998,7 @@ GameObject:
   - component: {fileID: 1753692137}
   - component: {fileID: 1753692136}
   m_Layer: 0
-  m_Name: PauseCanvas
+  m_Name: QuitCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,7 +1033,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1753692134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a573c76e2871d4458be8cedc28ef654, type: 3}
+  m_Script: {fileID: 11500000, guid: 137d7a19e8fba974298752382f33932e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xRNode: 5
@@ -1095,7 +1094,7 @@ GameObject:
   - component: {fileID: 1966310379}
   - component: {fileID: 1966310378}
   m_Layer: 0
-  m_Name: Pause
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
