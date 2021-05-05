@@ -38,16 +38,16 @@ Un fois que vous avez envoyer le jeu une fois dans le casque, il suffit de faire
 ## Structure des fichiers 
 
 * `Assets`/`BasicObject` : Les *prefabriqués*, objets basiques, non placés directement dans le jeu. 
-    * `BasicBalise`, une balise à atteindre lors du jeu de piste
+    * `BasicBall`, une ball à atteindre lors du jeu de piste
     * `BasicMap`, un *chunk* correspondant à un *bou de carte*, implementant `MapRenderer` (de `Maps SDK`)
     * `BasicText`, un texte 3D classique
 * `Assets`/`Maps` : 
 * `Assets`/`Material` : Contient les matériaux utilisés
-    * `Balise`, l'objet 3D représentant une balise
+    * `Ball`, l'objet 3D représentant une ball
 * `Assets`/`Scene` : Les scènes 
     * `SampleScene`, scène de déplacement dans une représentation 3D de notre monde, utilisant l'API `Maps SDK`
 * `Assets`/`Script` : Les scripts utilisés
-    * `BaliseLoader` 
+    * `BallLoader` 
     * `ComputerControls`, permet de se déplacer sans envoyer le jeu dans le casque
     Avec les touches :
         * `Z` pour monter (axe `y`)

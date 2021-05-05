@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Compass : MonoBehaviour
 {
-    public GameObject baliseIcon;
+    public GameObject ballIcon;
     public RawImage compassImage;
     public Transform player;
-    Dictionary<GameObject, GameObject> markerbalise = new Dictionary<GameObject, GameObject>();
+    Dictionary<GameObject, GameObject> markerball = new Dictionary<GameObject, GameObject>();
     float CompassUnit;
 
     // Start is called before the first frame update
@@ -21,31 +21,31 @@ public class Compass : MonoBehaviour
     void Update()
     {
         compassImage.uvRect = new Rect(player.localEulerAngles.y / 360f, 0f, 1f, 1f);
-        foreach (KeyValuePair<GameObject, GameObject> it in markerbalise)
+        foreach (KeyValuePair<GameObject, GameObject> it in markerball)
         {
             ((RectTransform)it.Value.transform).anchoredPosition = GetPosOnCompass(it.Key);
         }
     }
 
-    public void AddMarker(GameObject balise)
+    public void AddMarker(GameObject ball)
     {
-        GameObject marker = Instantiate(baliseIcon, compassImage.transform);
-        markerbalise.Add(balise, marker);
+        GameObject marker = Instantiate(ballIcon, compassImage.transform);
+        markerball.Add(ball, marker);
     }
 
-    public void DeleteMarker(GameObject balise)
+    public void DeleteMarker(GameObject ball)
     {
-        Destroy(markerbalise[balise]);
-        markerbalise.Remove(balise);     
+        Destroy(markerball[ball]);
+        markerball.Remove(ball);     
     }
 
-    Vector2 GetPosOnCompass(GameObject balise)
+    Vector2 GetPosOnCompass(GameObject ball)
     {
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.z);
         Vector2 playerFwd = new Vector2(player.transform.forward.x, player.transform.forward.z);
-        Vector2 balisePos = new Vector2(balise.transform.position.x, balise.transform.position.z);
+        Vector2 ballPos = new Vector2(ball.transform.position.x, ball.transform.position.z);
 
-        float angle = Vector2.SignedAngle(balisePos-playerPos,playerFwd);
+        float angle = Vector2.SignedAngle(ballPos-playerPos,playerFwd);
         return new Vector2(CompassUnit * angle, 0f);
     }
 }

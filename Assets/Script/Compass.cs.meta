@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - baliseIcon: {fileID: 6284917215630184743, guid: 1702ece3cdc65cc4586a55068255dbc3, type: 3}
+  - ballIcon: {fileID: 6284917215630184743, guid: 1702ece3cdc65cc4586a55068255dbc3, type: 3}
   - compassImage: {instanceID: 0}
   - player: {instanceID: 0}
   executionOrder: 0

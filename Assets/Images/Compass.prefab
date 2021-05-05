@@ -85,6 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40157b8e1b7cee4c82ef91d7e7c50c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baliseIcon: {fileID: 0}
+  ballIcon: {fileID: 0}
   compassImage: {fileID: 4917855901931554885}
   player: {fileID: 0}

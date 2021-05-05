@@ -7,9 +7,9 @@ using Microsoft.Geospatial;
 
 
 
-public class BaliseLoader : MonoBehaviour
+public class BallLoader : MonoBehaviour
 {
-    public GameObject basicBalise;
+    public GameObject basicBall;
     public MapRenderer basicMapRenderer;
     public TextMesh basicText;
     public GameObject compassCanvas;
@@ -57,7 +57,7 @@ public class BaliseLoader : MonoBehaviour
 
         foreach(StaticCoordinates.Ball b in map.balls){
             // Creating the ball
-            GameObject ball = Instantiate(basicBalise, ballsFolder.transform);
+            GameObject ball = Instantiate(basicBall, ballsFolder.transform);
             Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(b.lat, b.lon, 0));
             // Set the position of the ball yBall above the map
             ball.transform.position = pos + new Vector3(0f,yBall,0f);
@@ -78,9 +78,9 @@ public class BaliseLoader : MonoBehaviour
         for (int i = 0; i < 20; i++){
             float latitude = StaticCoordinates.GetMap().lat + UnityEngine.Random.Range(-delta, delta);
             float longitude = StaticCoordinates.GetMap().lon + UnityEngine.Random.Range(-delta, delta);
-            GameObject ball = Instantiate(basicBalise, ballsFolder.transform);
+            GameObject ball = Instantiate(basicBall, ballsFolder.transform);
             Vector3 pos = MapRendererTransformExtensions.TransformLatLonAltToLocalPoint(basicMapRenderer, new LatLonAlt(latitude, longitude, 0));
-            // Set the position of the balise yBall above the map
+            // Set the position of the ball yBall above the map
             ball.transform.position = pos + new Vector3(0f,yBall,0f);
             // Adding ball to the compass
             compass.AddMarker(ball);

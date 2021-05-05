@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6538a5177733fa45b2c48e61f206a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicBalise: {fileID: 1785783924605600854, guid: 6858ce107b4766e4993a45e831b1307a, type: 3}
+  basicBall: {fileID: 1785783924605600854, guid: 6858ce107b4766e4993a45e831b1307a, type: 3}
   basicMapRenderer: {fileID: 2894335716376165344, guid: 0cee3da292d235741be7a70d59a51788, type: 3}
   basicText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
   compassCanvas: {fileID: 127244218}
@@ -1564,7 +1564,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194228}
     - target: {fileID: 4917855901931554883, guid: 95c62f02e0010084bbcbcad34d6c495c, type: 3}
-      propertyPath: baliseIcon
+      propertyPath: ballIcon
       value: 
       objectReference: {fileID: 6284917215630184743, guid: 1702ece3cdc65cc4586a55068255dbc3, type: 3}
     - target: {fileID: 4917855901931554884, guid: 95c62f02e0010084bbcbcad34d6c495c, type: 3}

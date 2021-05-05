@@ -9,13 +9,13 @@
         "name": "PAPILLON"
     }],
     "modes": [{
-        "name": "Sans balises"
+        "name": "Sans balls"
     },
     {
-        "name": "Avec balises"
+        "name": "Avec balls"
     },
     {
-        "name": "Balises aléatoires"
+        "name": "Balls aléatoires"
     }],
     "maps": [{
             "name": "Seattle",

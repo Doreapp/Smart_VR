@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1785783924605600858}
   - component: {fileID: 1785783924605600859}
   m_Layer: 0
-  m_Name: BasicBalise
+  m_Name: BasicBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

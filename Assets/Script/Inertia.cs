@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inertie : MonoBehaviour
+public class Inertia : MonoBehaviour
 {
     public float game_friction;
 

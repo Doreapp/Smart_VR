@@ -24,7 +24,7 @@ public class Scoring : MonoBehaviour
         initialBallCount = StaticCoordinates.GetMap().balls.Count();
     	
         int ballsRemaining = ballsFolder.transform.childCount;
-        scoreText.text = $"Balises restantes: {ballsRemaining}";
+        scoreText.text = $"Balls restantes: {ballsRemaining}";
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class Scoring : MonoBehaviour
 
     public void updateScore(){
     	int ballsRemaining = ballsFolder.transform.childCount;
-        scoreText.text = $"Balises restantes: {ballsRemaining-1}";
+        scoreText.text = $"Balls restantes: {ballsRemaining-1}";
     	if(ballsFolder.transform.childCount <= 1){
             int score = (int) ((Time.timeAsDouble - startTime)*100);
     		Debug.Log(score);
