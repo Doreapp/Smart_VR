@@ -1,12 +1,18 @@
 {
     "machines": [{
-        "name": "MANDALIER"
+        "name": "MANDALIER",
+        "speedCoef": 0.005,
+        "gameFriction": 0.001
     },
     {
-        "name": "RAMEUR"
+        "name": "RAMEUR",
+        "speedCoef": 0.1,
+        "gameFriction": 0.005
     },
     {
-        "name": "PAPILLON"
+        "name": "PAPILLON",
+        "speedCoef": 0.2,
+        "gameFriction": 0.01
     }],
     "modes": [{
         "name": "Sans balls"

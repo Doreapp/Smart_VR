@@ -21,7 +21,7 @@ public class BallLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    	switch (StaticCoordinates.GetSelectedMode()) {
+    	switch (StaticCoordinates.SelectedMode) {
             case 0:
                 compassCanvas.SetActive(false);
                 break;
