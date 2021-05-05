@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: H4241
+  companyName: Antoine
   productName: TWBNL
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -161,7 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.H4241.TWBNL
+    Android: com.Antoine.TWBNL
     Standalone: com.DefaultCompany.Tentative
   buildNumber:
     Standalone: 0

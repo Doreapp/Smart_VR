@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _version: 3
   _mapSession: {fileID: 0}
-  _mapEdgeColor: {r: 0.62352943, g: 0.64705884, b: 0.69411767, a: 1}
-  _mapEdgeColorFadeDistance: 0.02
+  _mapEdgeColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
+  _mapEdgeColorFadeDistance: 0
   _detailOffset: -1
   _numElevationTileFallbackLods: 0
   _requestTilesAroundView: 0
