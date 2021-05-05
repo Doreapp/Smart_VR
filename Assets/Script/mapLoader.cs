@@ -66,7 +66,6 @@ public class mapLoader : MonoBehaviour
 
         // If one of the value changed, updated tile display
         if(playerTileX != lastPlayerTileX || playerTileZ != lastPlayerTileZ || playerAngle != lastPlayerAngle){
-            Debug.Log($"ppos=({playerTileX}, {playerTileZ}) rot={playerAngle}");
             updateTiles(playerAngle, playerTileX, playerTileZ);
             lastPlayerTileX = playerTileX;
             lastPlayerTileZ = playerTileZ;
@@ -88,16 +87,11 @@ public class mapLoader : MonoBehaviour
         float xCenter = playerTileX;
         float zCenter = playerTileZ;
 
-        
-        Debug.Log($"tileCenter : ({playerTileX + Mathf.Sin(realAngle)*size}, {playerTileZ + Mathf.Cos(realAngle)*size})");
-
         float floatingCenterX = playerTileX + Mathf.Sin(realAngle)*(size-1);
         float floatingCenterZ = playerTileZ + Mathf.Cos(realAngle)*(size-1);
 
         float tileCenterX = Mathf.Sign(floatingCenterX)*(int)(Mathf.Abs(floatingCenterX)+0.9f);
         float tileCenterZ = Mathf.Sign(floatingCenterZ)*(int)(Mathf.Abs(floatingCenterZ)+0.9f);
-
-        Debug.Log($"tileCenter : ({tileCenterX}, {tileCenterZ})");
 
         xMin = (tileCenterX-size)*tileSize;
         xMax = (tileCenterX+size)*tileSize;
@@ -129,8 +123,6 @@ public class mapLoader : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log($"nBounds[x:{xMin}-{xMax}, z:{zMin}-{zMax}] cBounds[x:{currentMinX}-{currentMaxX}, z:{currentMinZ}-{currentMaxZ}]");
 
         // Fill tiles inexistants and inbounds
         for(float x = currentMaxX+tileSize; x <= xMax; x+= tileSize){
