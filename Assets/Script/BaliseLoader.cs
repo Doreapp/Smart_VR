@@ -48,6 +48,15 @@ public class BaliseLoader : MonoBehaviour
                 compass.DeleteMarker(balise.gameObject);
                 Destroy(balise.gameObject);
             }
+            if (Vector3.Distance(balise.position, camera.transform.position) > 25f)
+            {
+                balise.localScale = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                balise.localScale = new Vector3(1, 1, 1);
+            }
+
         }
     }
 }
