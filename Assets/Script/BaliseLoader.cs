@@ -12,6 +12,7 @@ public class BaliseLoader : MonoBehaviour
     public GameObject basicBalise;
     public MapRenderer basicMapRenderer;
     public TextMesh basicText;
+    public GameObject compassCanvas;
     public Compass compass;
     public int yBall;
     public GameObject ballsFolder;
@@ -22,7 +23,7 @@ public class BaliseLoader : MonoBehaviour
     {
     	switch (StaticCoordinates.GetSelectedMode()) {
             case 0:
-                compass.transform.gameObject.SetActive(false);
+                compassCanvas.SetActive(false);
                 break;
             case 1:
                 spawnBalls();
@@ -36,15 +37,15 @@ public class BaliseLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (Transform balise in ballsFolder.transform)
+        foreach (Transform ball in ballsFolder.transform)
         {
-            if (Vector3.Distance(balise.position, cam.transform.position) > 25f)
+            if (Vector3.Distance(ball.position, cam.transform.position) > 25f)
             {
-                balise.localScale = new Vector3(0, 0, 0);
+                ball.localScale = new Vector3(0, 0, 0);
             }
             else
             {
-                balise.localScale = new Vector3(1, 1, 1);
+                ball.localScale = new Vector3(1, 1, 1);
             }
         }
     }
