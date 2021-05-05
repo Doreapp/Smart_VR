@@ -15,6 +15,7 @@ public static class StaticCoordinates{
     public class Machine
     {
         public string name;
+        public float speedCoef,gameFriction;
     }
 
     [Serializable]
@@ -54,16 +55,8 @@ public static class StaticCoordinates{
         return modes[SelectedMode];
     }
 
-    public static int GetSelectedMode(){
-        return SelectedMode;
-    }
-
     public static Machine GetMachine(){
         return machines[SelectedMachine];
-    }
-
-    public static int GetSelectedMachine(){
-        return SelectedMachine;
     }
 
     public static void FecthData(){

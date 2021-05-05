@@ -26,23 +26,13 @@ public class Inertia : MonoBehaviour
 
     public  bool COMPUTER_CONTROL = true;
 
-
-    public enum Exercice
-    {
-        MANDALIER,
-        ROWING,
-        BUTTERFLY
-    }
-    public Exercice exercice;
-
-
     // Start is called before the first frame update
     void Start()
     {
         cam.GetComponent<Rigidbody>().useGravity = false;
-        game_friction = 0.02f;
-        exercice = Exercice.ROWING;
-        logText.anchor = TextAnchor.MiddleCenter;
+        
+        coefSpeed = StaticCoordinates.GetMachine().speedCoef;
+        gameFriction = StaticCoordinates.GetMachine().gameFriction;
     }
 
     // Update is called once per frame
@@ -90,23 +80,24 @@ public class Inertia : MonoBehaviour
                 Vector3 positionDiff = controller.transform.position - lastPosition;
                 lastPosition = controller.transform.position;
 
-                switch(exercice)
+                switch(StaticCoordinates.SelectedMachine)
                 {
-                case Exercice.MANDALIER:
+                // MANDALIER
+                case 0:
                     //We only want to produce force for the controller movement in the plane (y, z)
                     positionDiff.x = 0;
                     break;
-
-                case Exercice.ROWING:
+                // ROWING
+                case 1:
                     //if the controller is going forward, in the rowing exercice, the user isn't doing any effort so he doesn't produce force.
-                    if (positionDiff.z > 0) { 
+                    if (positionDiff.z > 0) {
                         positionDiff = new Vector3(0, 0, 0);
                     }
                     //we only want to produce force for the controller movement in the plane (x, y)
                     positionDiff.y = 0;
                     break;
-
-                case Exercice.BUTTERFLY:
+                // BUTTERFLY
+                case 2:
                     //We only want to produce force for the controller movement in the plane (x, z)
                     positionDiff.y = 0;
                     break;
@@ -119,27 +110,28 @@ public class Inertia : MonoBehaviour
             }
         }
 
-    
-        Vector3 resistanceForce = game_friction * velocity;
-        Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
-        
-        //prevent user to go too high or too low
-        if (cam.transform.position.y <= 0.7) {
-            if (motorForce.y <= 0) {
-                motorForce.y = 0;
+        if (globalTime > 3) {
+            Vector3 resistanceForce = gameFriction * velocity;
+            Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
+            
+            //prevent user to go too high or too low
+            if (cam.transform.position.y <= 0.35) {
+                if (motorForce.y <= 0) {
+                    motorForce.y = 0;
+                }
+                if (cam.transform.position.y < 0.3) {
+                    motorForce.y = 0.0025f;
+                }
+                if (cam.transform.position.y < 0.21) {
+                    cam.transform.position = new Vector3 (cam.transform.position.y, 0.21f, cam.transform.position.z);
+                }
+            }else if(cam.transform.position.y >= 3.7 && motorForce.y >= 0) {
+                    motorForce.y = - 0.01f;
             }
-            if (cam.transform.position.y < 0.6) {
-                motorForce.y = 0.01f;
-            }
-            if (cam.transform.position.y < 0.41) {
-                cam.transform.position = new Vector3 (cam.transform.position.y, 0.41f, cam.transform.position.z);
-            }
-        }else if(cam.transform.position.y >= 3.7 && motorForce.y >= 0) {
-                motorForce.y = - 0.01f;
-        }
 
-        Vector3 force = motorForce - resistanceForce;
-        cam.AddForce(force, ForceMode.VelocityChange);
+            Vector3 force = motorForce - resistanceForce;
+            cam.AddForce(force, ForceMode.VelocityChange);
+        }
         
     }
 
