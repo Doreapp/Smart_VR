@@ -1,4 +1,13 @@
 {
+    "machines": [{
+        "name": "MANDALIER"
+    },
+    {
+        "name": "RAMEUR"
+    },
+    {
+        "name": "PAPILLON"
+    }],
     "modes": [{
         "name": "Sans balises"
     },
