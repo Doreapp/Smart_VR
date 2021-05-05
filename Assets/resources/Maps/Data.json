@@ -1,21 +1,27 @@
 {
     "machines": [{
-        "name": "MANDALIER"
+        "name": "MANDALIER",
+        "speedCoef": 0.005,
+        "gameFriction": 0.001
     },
     {
-        "name": "RAMEUR"
+        "name": "RAMEUR",
+        "speedCoef": 0.05,
+        "gameFriction": 0.005
     },
     {
-        "name": "PAPILLON"
+        "name": "PAPILLON",
+        "speedCoef": 0.2,
+        "gameFriction": 0.01
     }],
     "modes": [{
-        "name": "Sans balls"
+        "name": "Sans balises"
     },
     {
-        "name": "Avec balls"
+        "name": "Avec balises"
     },
     {
-        "name": "Balls aléatoires"
+        "name": "Balises aléatoires"
     }],
     "maps": [{
             "name": "Seattle",
@@ -74,11 +80,7 @@
             "country": "United States",
             "lat": "34.1",
             "lon": "-118.3",
-            "balls": [{
-                    "name": "The Wizarding World Of Harry Potter",
-                    "lat": 34.1384555131497,
-                    "lon": -118.35353816069139
-                },
+            "balls": [
                 {
                     "name": "Walt Disney Concert Hall",
                     "lat": 34.055636049992835,
