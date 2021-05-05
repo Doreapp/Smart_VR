@@ -1,13 +1,13 @@
 {
     "machines": [{
         "name": "MANDALIER",
-        "speedCoef": 0.005,
-        "gameFriction": 0.001
+        "speedCoef": 0.01,
+        "gameFriction": 0.004
     },
     {
         "name": "RAMEUR",
-        "speedCoef": 0.05,
-        "gameFriction": 0.005
+        "speedCoef": 0.02,
+        "gameFriction": 0.002
     },
     {
         "name": "PAPILLON",
