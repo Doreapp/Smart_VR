@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Manage the movement of the player
 public class Inertia : MonoBehaviour
 {
+    
     public float game_friction;
 
     public GameObject head; 

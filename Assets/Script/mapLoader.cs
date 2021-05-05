@@ -4,23 +4,35 @@ using UnityEngine;
 using Microsoft.Maps.Unity;
 using Microsoft.Geospatial;
 
+/// Script loading the map tiles
 public class mapLoader : MonoBehaviour
 {
+    /// Prefable for a tile (having a map renderer)
     public GameObject basicMap;
+
+    /// Player object
     public GameObject player;
+    
+    /// Number of crown of tiles to display : 
+    /// size=1 --> 3x3 maps ; size=4 --> 9x9 maps ; size=n --> (2*n+1)x(2*n+1) maps 
     public int size;
+
+    /// Size (of the side) of a map tile. Must concord to [basicMap] border size.
     public int tileSize = 3;
 
+    /// List of shown tiles
     List<GameObject> maps;
 
+    /// current player cooridinates 
     int lastPlayerTileX = 0, lastPlayerTileZ = 0;
 
-    // Int between 0 and 7, where the player is looking at (0=front, 1=front-left, 2=left, 3=back-left...)
+    /// Part of the 360° rotation the player is in, that is dependent on size.
     int lastPlayerAngle = 0;
 
-    // Part of the 360° rotation to discretise
+    /// Number of part of the 360° we do
     private int angleCount;
 
+    /// Prefab map renderer we clone
     private MapRenderer basicMapRenderer;
     
 
@@ -29,15 +41,15 @@ public class mapLoader : MonoBehaviour
     {
         angleCount = size*2*4;
 
-    	// Getting the map rendered 
+    	// Getting the map renderer
         basicMapRenderer = basicMap.GetComponent<MapRenderer>();
-    	// Position it above the selected Map
+    	// Place it above the selected Map
         StaticCoordinates.Map selectedMap = StaticCoordinates.GetMap();
         basicMapRenderer.Center = new LatLon(selectedMap.lat, selectedMap.lon);
 
         maps = new List<GameObject>();
         
-        // Inflating the chunks
+        // Inflate the chunks
         for(int x = -size; x <= size; x++)
         {
             for(int z = -1; z <= 2*size - 1; z++)
@@ -55,8 +67,6 @@ public class mapLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += new Vector3(-0.005f,0f,0.002f);
-        //Vector3 mapCenter = transform.position;
         Vector3 playerCenter = player.transform.position;
 
         // Get current player data : player position relative to a size x size grid + direction angle 
@@ -74,18 +84,15 @@ public class mapLoader : MonoBehaviour
     }
 
     /**
-    Update tiles display
-    Find the bounds that must be displayed relative to player's angle and grid position (params)
-    Remove tiles out of bounds
-    Create tiles inexistantes inbounds
+    Update tiles display.
+    Find the bounds that must be displayed relative to player's angle and grid position (params).
+    Remove tiles out of bounds.
+    Create tiles needed to match bounds.
     **/
     private void updateTiles(int playerAngle, int playerTileX, int playerTileZ){
         float realAngle = playerAngle*360f * Mathf.Deg2Rad/(float)angleCount;
         // Bounds
         float xMin, xMax, zMin, zMax;
-        // Player position
-        float xCenter = playerTileX;
-        float zCenter = playerTileZ;
 
         float floatingCenterX = playerTileX + Mathf.Sin(realAngle)*(size-1);
         float floatingCenterZ = playerTileZ + Mathf.Cos(realAngle)*(size-1);
@@ -124,7 +131,7 @@ public class mapLoader : MonoBehaviour
             }
         }
 
-        // Fill tiles inexistants and inbounds
+        // Fill tiles needed inbounds
         for(float x = currentMaxX+tileSize; x <= xMax; x+= tileSize){
             for(float z = zMin; z <= zMax; z+= tileSize){
                 createMap(x,z);
