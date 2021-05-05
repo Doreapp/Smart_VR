@@ -1,13 +1,13 @@
 {
     "machines": [{
         "name": "MANDALIER",
-        "speedCoef": 0.005,
-        "gameFriction": 0.001
+        "speedCoef": 0.01,
+        "gameFriction": 0.004
     },
     {
         "name": "RAMEUR",
-        "speedCoef": 0.05,
-        "gameFriction": 0.005
+        "speedCoef": 0.02,
+        "gameFriction": 0.002
     },
     {
         "name": "PAPILLON",
@@ -72,6 +72,11 @@
                     "name": "Lake Union",
                     "lat": 47.639808322973714,
                     "lon": -122.33565823707983
+                },
+                {
+                    "name": "Stadium",
+                    "lat": 47.593205038362164,
+                    "lon": -122.3320201220117
                 }
             ]
         },
@@ -166,6 +171,7 @@
             ]
         },
         {
+<<<<<<< HEAD
             "name": "Venise",
             "country": "Italie",
             "lat": "45.43713",
@@ -230,6 +236,65 @@
                 "lon": -73.543164494
             }
 
+=======
+            "name": "San Fransisco",
+            "country": "United States",
+            "lat": "37.82",
+            "lon": "-122.478",
+            "balls": []
+        },
+        {
+            "name": "Valencia",
+            "country": "Spain",
+            "lat": "39.4699075",
+            "lon": "-0.3762881",
+            "balls": [
+                {
+                    "name": "Sciences Museum",
+                    "lat": 39.456636,
+                    "lon": -0.353851
+                },
+                {
+                    "name": "La Marina",
+                    "lat": 39.462363,
+                    "lon": -0.323417
+                },
+                {
+                    "name": "Santa Maria Cathedral",
+                    "lat": 39.475507,
+                    "lon": -0.375123
+                },
+                {
+                    "name": "North Train Station",
+                    "lat": 39.466710,
+                    "lon": -0.377247
+                },
+                {
+                    "name": "Mestalla Stadium",
+                    "lat": 39.474596,
+                    "lon": -0.358213
+                },
+                {
+                    "name": "Oceonografic",
+                    "lat": 39.453170,
+                    "lon": -0.347773
+                },
+                {
+                    "name": "Port Saplaya",
+                    "lat": 39.510727,
+                    "lon": -0.321465
+                },
+                {
+                    "name": "113 Blasco Ibanez",
+                    "lat": 39.473371,
+                    "lon": -0.344371
+                },
+                {
+                    "name": "Plaza del Ayuntamiento",
+                    "lat": 39.469961,
+                    "lon": -0.376546
+                }
+>>>>>>> 89e795a20a7dfd11a674151899e5313e50959b8b
             ]
         }
 
