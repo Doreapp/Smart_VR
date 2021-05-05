@@ -12,6 +12,7 @@ public class BaliseLoader : MonoBehaviour
     public GameObject basicBalise;
     public MapRenderer basicMapRenderer;
     public TextMesh basicText;
+    public Compass compass;
 
     // Start is called before the first frame update
     void Start()
