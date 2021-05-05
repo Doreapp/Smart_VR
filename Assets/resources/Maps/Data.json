@@ -15,13 +15,13 @@
         "gameFriction": 0.01
     }],
     "modes": [{
-        "name": "Sans balls"
+        "name": "Sans balises"
     },
     {
-        "name": "Avec balls"
+        "name": "Avec balises"
     },
     {
-        "name": "Balls aléatoires"
+        "name": "Balises aléatoires"
     }],
     "maps": [{
             "name": "Seattle",
@@ -80,11 +80,7 @@
             "country": "United States",
             "lat": "34.1",
             "lon": "-118.3",
-            "balls": [{
-                    "name": "The Wizarding World Of Harry Potter",
-                    "lat": 34.1384555131497,
-                    "lon": -118.35353816069139
-                },
+            "balls": [
                 {
                     "name": "Walt Disney Concert Hall",
                     "lat": 34.055636049992835,
