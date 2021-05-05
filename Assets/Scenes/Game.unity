@@ -646,17 +646,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5905691d51bd1ac4db0949f9702a3545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_friction: 0
+  gameFriction: 0
   head: {fileID: 963194225}
   cam: {fileID: 223974229}
   player: {fileID: 223974226}
-  controller: {fileID: 1114040580}
+  controller: {fileID: 165585583}
   logText: {fileID: 258516363549095574, guid: 81631248c0bcddf4a9cf2500312709cf, type: 3}
   coefSpeed: 0.2
   minAngle: 0.1
   coefRotation: 0.8
   COMPUTER_CONTROL: 0
-  exercice: 0
 --- !u!1 &934820688
 GameObject:
   m_ObjectHideFlags: 0
