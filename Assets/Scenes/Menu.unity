@@ -956,7 +956,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title of this Game
+  m_Text: Fly Over
 --- !u!222 &371081237
 CanvasRenderer:
   m_ObjectHideFlags: 0
