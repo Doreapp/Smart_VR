@@ -108,7 +108,7 @@ public class Inertia : MonoBehaviour
             }
         }
 
-        if (globalTime > 3) {
+        if (globalTime > 10) {
             Vector3 resistanceForce = gameFriction * velocity;
             Vector3 motorForce =  coefSpeed * controllerSpeed * direction;
             
@@ -129,6 +129,10 @@ public class Inertia : MonoBehaviour
 
             Vector3 force = motorForce - resistanceForce;
             cam.AddForce(force, ForceMode.VelocityChange);
+            log("");
+        } else {
+            int countdown =  10 - (int)globalTime;
+            log("Vous allez commencer dans " + countdown.ToString()+" sec");
         }
         
     }
