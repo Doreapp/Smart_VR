@@ -233,7 +233,9 @@
                 "name": "Biodome",
                 "lat": 45.55583111,
                 "lon": -73.543164494
-            }
+            }]
+        },
+        {
             "name": "San Fransisco",
             "country": "United States",
             "lat": "37.82",
