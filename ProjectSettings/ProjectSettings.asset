@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: H4241
-  productName: FlightOver
+  companyName: Insa-H4241
+  productName: FlyOver
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -143,6 +143,7 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 360cbb71b47a833439a638934b63c4a8, type: 2}
   - {fileID: 0}
   - {fileID: 5569055308855136444, guid: 5a7ac9ca290361c4e94a0e606a659a59, type: 2}
@@ -163,7 +164,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.H4241.FlightOver
+    Android: com.InsaH4241.FlyOver
     Standalone: com.DefaultCompany.Tentative
   buildNumber:
     Standalone: 0
