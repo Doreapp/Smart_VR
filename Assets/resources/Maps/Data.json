@@ -244,6 +244,58 @@
             "balls": []
         },
         {
+            "name": "Barcelona",
+            "country": "France",
+            "lat": "41.385064",
+            "lon": "2.173404",
+            "balls": [{
+                    "name": "Sagrada Familia",
+                    "lat": 41.403630,
+                    "lon": 2.174356
+                },
+                {
+                    "name": "Parc Güell",
+                    "lat": 41.414414,
+                    "lon": 2.152008
+                },
+                {
+                    "name": "La Pedreda",
+                    "lat": 41.395217,
+                    "lon": 2.161734
+                },
+                {
+                    "name": "Montjuïc",
+                    "lat": 41.363861,
+                    "lon": 2.167203
+                },
+                {
+                    "name": "La Rambla",
+                    "lat": 41.38564,
+                    "lon": 2.16982
+                },
+                {
+                    "name": "Casa Batlló",
+                    "lat": 41.39172,
+                    "lon": 2.16495
+                },
+                {
+                    "name": "Barcelona Cathedral",
+                    "lat": 41.38393,
+                    "lon": 2.17621
+                },
+                {
+                    "name": "Tibidabo",
+                    "lat": 41.42244,
+                    "lon": 2.11861
+                },
+                {
+                    "name": "Catalan Art Museum",
+                    "lat": 41.36835,
+                    "lon": 2.15350
+                }
+            ]
+        },
+        {
             "name": "Valencia",
             "country": "Spain",
             "lat": "39.4699075",
@@ -292,6 +344,16 @@
                     "name": "Plaza del Ayuntamiento",
                     "lat": 39.469961,
                     "lon": -0.376546
+                },
+                {
+                    "name": "Valencia Airport",
+                    "lat": 39.491680,
+                    "lon": -0.474143
+                },
+                {
+                    "name": "Albufera Natural Park",
+                    "lat": 39.333661,
+                    "lon": -0.357943
                 }
             ]
         }
