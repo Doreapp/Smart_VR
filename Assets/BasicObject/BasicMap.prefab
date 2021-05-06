@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2894335717163041311}
   - component: {fileID: 2894335716376165344}
   - component: {fileID: -4416720985439280093}
+  - component: {fileID: -4328365868366721626}
   m_Layer: 0
   m_Name: BasicMap
   m_TagString: Untagged
@@ -74,7 +75,8 @@ MonoBehaviour:
     _list:
     - {fileID: -4416720985439280093}
   _elevationTileLayers:
-    _list: []
+    _list:
+    - {fileID: -4328365868366721626}
   _hideTileLayerComponents: 1
   _mapColliderType: 1
   _mapCollider: {fileID: 0}
@@ -95,3 +97,15 @@ MonoBehaviour:
   _areLabelsEnabled: 0
   _isHillShadingEnabled: 1
   _imageryStyle: 0
+--- !u!114 &-4328365868366721626
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894335716376165354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 243684798, guid: f58183a31672bf641bbeeaef3d4759c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
